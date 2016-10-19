@@ -8,58 +8,43 @@ using System.Threading.Tasks;
 namespace Grimoire.UI
 {
     /// <summary>
-    /// Frame using BitBlit
+    /// The Whole screen frame
     /// </summary>
-    public class Frame
+    public struct ScreenFrame
     {
-        // Screen
-        private static readonly int _screenWidth = 100;
-        private static readonly int _screenHeight = 70;
-
-        // MAP
-        private static readonly int _mapWidth = 80;
-        private static readonly int _mapHeight = 48;
-
-        // Message
-        private static readonly int _messageWidth = 80;
-        private static readonly int _messageHeight = 11;
-
-        // Status
-        private static readonly int _statusWidth = 20;
-        private static readonly int _statusHeight = 70;
-
-        // Invent
-        private static readonly int _inventoryWidth = 80;
-        private static readonly int _inventoryHeight = 11;
-
-        public static int GetScreenWidth()
-        {
-            return _screenWidth;
-        }
-        public static int GetScreenHeight()
-        {
-            return _screenHeight;
-        }
-        public static int GetMapWidth()
-        {
-            return _mapWidth;
-        }
-        public static int statusWidth()
-        {
-            return _statusWidth;
-        }
-        public static int statusHeight()
-        {
-            return _statusHeight;
-        }
-        public static int inventoryWidth()
-        {
-            return _inventoryWidth;
-        }
-        public static int inventoryHeight()
-        {
-            return _inventoryHeight;
-        }
-
+        public static int Width { get { return 100; } }
+        public static int Height { get {return 70; } }
+    }
+    /// <summary>
+    /// Map Frame
+    /// </summary>
+    public struct MapFrame
+    {
+        public static int Width { get { return 80; } }
+        public static int Height { get { return 48; } }
+    }
+    /// <summary>
+    /// Message Frame
+    /// </summary>
+    public struct MessageFrame
+    {
+        public static int Width { get { return 80; } }
+        public static int Height { get { return 11; } }
+    }
+    /// <summary>
+    /// Status Frame
+    /// </summary>
+    public struct StatusFrame
+    {
+        public static int Width { get { return 20; } }
+        public static int Height { get { return 70; } }
+    }
+    /// <summary>
+    /// Inventory Frame
+    /// </summary>
+    public struct InventoryFrame
+    {
+        public static int Width { get { return 80; } }
+        public static int Height { get { return 11; } }
     }
 }
