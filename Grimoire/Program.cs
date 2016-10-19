@@ -1,4 +1,5 @@
 ﻿using Grimoire.Helper;
+using Grimoire.UI;
 using RLNET;
 using System;
 using System.Collections.Generic;
@@ -10,18 +11,22 @@ namespace Grimoire
 {
     public class Program
     {
-        private static readonly int _screenWidth = 100;
-        private static readonly int _screenHeight = 80;
         private static readonly int _charWidth = 8;
         private static readonly int _charHeight = 8;
         private static RLRootConsole _rootConsole;
+        private static RLConsole mapConsole;
+        private static RLConsole messageConsole;
+        private static RLConsole statusConsole;
+        private static RLConsole inventoryConsole;
+
         static void Main()
         {
             string fontFile = AppHelper.GetFontFile();
             //string fontFile = "terminal8x8.png";
             string title = "Tes Level 1";
+            var map = new RLConsole(Frame.statusWidth(), Frame.statusHeight());
 
-            _rootConsole = new RLRootConsole(fontFile, _screenWidth, _screenHeight, _charWidth, _charHeight, 1f, title);
+            _rootConsole = new RLRootConsole(fontFile, Frame.GetScreenWidth(), Frame.GetScreenHeight(), _charWidth, _charHeight, 1f, title);
             _rootConsole.Update += OnRootConsoleUpdate;
             _rootConsole.Render += OnRootConsoleRender;
             _rootConsole.Run();

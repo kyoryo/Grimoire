@@ -7,7 +7,10 @@ using System.Configuration;
 
 namespace Grimoire.Helper
 {
-    public class AppHelper
+    /// <summary>
+    /// Contain Helper, note: usefull!
+    /// </summary>
+    public static class AppHelper
     {
         public static string GetFontFile()
         {
