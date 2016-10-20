@@ -1,11 +1,6 @@
 ﻿using Grimoire.Helper;
 using Grimoire.UI;
 using RLNET;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Grimoire
 {
@@ -38,17 +33,17 @@ namespace Grimoire
         }
         private static void OnRootConsoleUpdate(object sender, UpdateEventArgs e)
         {
-            _mapConsole.SetBackColor(0, 0, RLColor.Black);
-            _mapConsole.Print(1, 1, "for map", RLColor.White);
+            _mapConsole.SetBackColor(0, 0, MapFrame.Width, MapFrame.Height, Colors.FloorBackground);
+            _mapConsole.Print(1, 1, "for map", Colors.TextHeading);
 
-            _messageConsole.SetBackColor(0, 0, RLColor.Gray);
-            _messageConsole.Print(1, 1, "for message", RLColor.White);
+            _messageConsole.SetBackColor(0, 0, MessageFrame.Width, MessageFrame.Height, Colors.Message);
+            _messageConsole.Print(1, 1, "for message", Colors.TextHeading);
 
-            _statusConsole.SetBackColor(0, 0, RLColor.Cyan);
-            _statusConsole.Print(1, 1, "for status", RLColor.White);
+            _statusConsole.SetBackColor(0, 0, StatusFrame.Width, StatusFrame.Height, Colors.Status);
+            _statusConsole.Print(1, 1, "for status", Colors.TextHeading);
 
-            _inventoryConsole.SetBackColor(0, 0, RLColor.Black);
-            _inventoryConsole.Print(1, 1,"for invent", RLColor.White);
+            _inventoryConsole.SetBackColor(0, 0, InventoryFrame.Width, InventoryFrame.Height, Colors.Inventory);
+            _inventoryConsole.Print(1, 1,"for invent", Colors.TextHeading);
         }
         private static void OnRootConsoleRender(object sender, UpdateEventArgs e)
         {
