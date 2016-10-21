@@ -1,4 +1,5 @@
-﻿using Grimoire.Helper;
+﻿using Grimoire.Actor;
+using Grimoire.Helper;
 using Grimoire.UI;
 using RLNET;
 
@@ -53,6 +54,10 @@ namespace Grimoire
             RLConsole.Blit(_inventoryConsole, 0, 0, InventoryFrame.Width, InventoryFrame.Height, _rootConsole, 0, 0);
 
             _rootConsole.Draw();
+        }
+        private void UpdatePlayerFOV(object sender, UpdateEventArgs e)
+        {
+            Player player = new Player();
         }
     }
 }

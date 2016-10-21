@@ -26,5 +26,7 @@ namespace Grimoire.UI
         public static RLColor Inventory = Secondary;
         public static RLColor Status = RLColor.Gray;
         public static RLColor Map = FloorBackground;
+
+        public static RLColor Player = DbLight;
     }
 }
