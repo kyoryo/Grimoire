@@ -9,7 +9,7 @@ using Grimoire.UI;
 
 namespace Grimoire.Actor
 {
-    public class Actor : IAmActor, ICanDrawMap
+    public class Actor : IAmAnActor, ICanDrawMap
     {
         public string Name { get; set; }
         public int FOV { get; set; }
