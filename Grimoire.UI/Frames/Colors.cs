@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Grimoire.UI
 {
-    public class Colors : Scheme
+    public class Colors : MainPalettes
     {
         public static RLColor FloorBackground = RLColor.Black;
         public static RLColor Floor = AlternateDarkest;

@@ -4,17 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{AF59CE3E-9D32-4967-AEF3-EF7847B751DB}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{E1188304-9615-44AF-A575-867C412B60AD}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Grimoire</RootNamespace>
-    <AssemblyName>Grimoire</AssemblyName>
+    <RootNamespace>Grimoire.UI</RootNamespace>
+    <AssemblyName>Grimoire.UI</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,7 +22,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -41,12 +38,7 @@
       <HintPath>..\packages\RLNET.1.0.6\lib\RLNET.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="RogueSharp, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\RogueSharp.3.0.0\lib\portable-net40+sl50+win+wpa81+wp80\RogueSharp.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
-    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -56,34 +48,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Actor\ICanDrawMap.cs" />
-    <Compile Include="Enums\Directions.cs" />
-    <Compile Include="Helper\AppHelper.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="Frames\Colors.cs" />
+    <Compile Include="Frames\Frame.cs" />
+    <Compile Include="Palettes\MainPalettes.cs" />
+    <Compile Include="Palettes\SecondaryPalettes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Font\bitmap8x8.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Core\" />
-    <Folder Include="Levels\" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Grimoire.Domain\Grimoire.Domain.csproj">
-      <Project>{72C1AC02-A53D-4ABC-A43E-53091C84D30F}</Project>
-      <Name>Grimoire.Domain</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Grimoire.UI\Grimoire.UI.csproj">
-      <Project>{E1188304-9615-44AF-A575-867C412B60AD}</Project>
-      <Name>Grimoire.UI</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

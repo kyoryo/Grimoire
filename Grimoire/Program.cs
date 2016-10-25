@@ -1,6 +1,8 @@
 ﻿using Grimoire.Actor;
+using Grimoire.Domain.Actors.Player;
 using Grimoire.Helper;
 using Grimoire.UI;
+using Grimoire.UI.Frames;
 using RLNET;
 
 namespace Grimoire

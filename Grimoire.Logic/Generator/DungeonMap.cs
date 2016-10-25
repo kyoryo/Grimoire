@@ -14,9 +14,9 @@ namespace Grimoire.Logic.Generator
         {
             Rooms = new List<Rectangle>();
         }
-        public bool SetActorPosition(Actor )
-        {
+        //public bool SetActorPosition(Actor )
+        //{
 
-        }
+        //}
     }
 }

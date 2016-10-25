@@ -1,11 +1,6 @@
 ﻿using Grimoire.UI;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Grimoire.Actor
+namespace Grimoire.Domain.Actors.Player
 {
     public class Player : Actor
     {
