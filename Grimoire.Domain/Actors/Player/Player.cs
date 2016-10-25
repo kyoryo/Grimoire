@@ -6,7 +6,7 @@ namespace Grimoire.Domain.Actors.Player
     {
         public Player()
         {
-            FOV = 15;
+            FieldOfView = 15;
             Name = "Player";
             Color = Colors.Player;
             Symbol = '@';

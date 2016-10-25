@@ -21,7 +21,7 @@ namespace Grimoire
         {
             string fontFile = AppHelper.GetFontFile();
             //string fontFile = "terminal8x8.png";
-            string title = "Tes Level 1";
+            string title = "Grimoire (developing)";
             //var map = new RLConsole(Frame._inventoryWidth, Frame._inventoryHeight);
 
             _rootConsole = new RLRootConsole(fontFile, ScreenFrame.Width, ScreenFrame.Height, _charWidth, _charHeight, 1f, title);

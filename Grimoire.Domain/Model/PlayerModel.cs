@@ -4,11 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Grimoire.Domain.Actor
+namespace Grimoire.Domain.Model
 {
-    public interface IAmAnActor
+    public class PlayerModel
     {
-        string Name { get; set; }
-        int FieldOfView { get; set; }
     }
 }
