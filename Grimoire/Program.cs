@@ -31,10 +31,7 @@ namespace Grimoire
             int seed = (int)DateTime.UtcNow.Ticks;
             Random = new DotNetRandom(seed);
 
-
-            //string fontFile = "terminal8x8.png";
             string title = "Grimoire (developing)";
-            //var map = new RLConsole(Frame._inventoryWidth, Frame._inventoryHeight);
 
             _rootConsole = new RLRootConsole(fontFile, ScreenFrame.Width, ScreenFrame.Height, _charWidth, _charHeight, 1f, title);
             _mapConsole = new RLConsole(MapFrame.Width, MapFrame.Height);
@@ -43,7 +40,7 @@ namespace Grimoire
             _inventoryConsole = new RLConsole(StatusFrame.Width, MessageFrame.Height);
 
             Player = new Player();
-            MapGenerator mapGenerator = new MapGenerator(MapFrame.Width, MapFrame.Height, 20, 13, 7);
+            MapGenerator mapGenerator = new MapGenerator(MapFrame.Width, MapFrame.Height/*, 20, 13, 7*/);
             DungeonMap = mapGenerator.CreateMap();
 
             DungeonMap.UpdatePlayerFieldOfView();
@@ -70,12 +67,14 @@ namespace Grimoire
         }
         private static void OnRootConsoleRender(object sender, UpdateEventArgs e)
         {
+            DungeonMap.Draw(_mapConsole);
+            Player.Draw(_mapConsole, DungeonMap);
+
             RLConsole.Blit( _mapConsole, 0, 0, MapFrame.Width, MapFrame.Height, _rootConsole, 0, InventoryFrame.Height);
             RLConsole.Blit(_statusConsole, 0, 0, StatusFrame.Width, StatusFrame.Height, _rootConsole, MapFrame.Width, 0);
             RLConsole.Blit(_messageConsole, 0, 0, MessageFrame.Width, MessageFrame.Height, _rootConsole, 0, ScreenFrame.Height - MessageFrame.Height);
             RLConsole.Blit(_inventoryConsole, 0, 0, InventoryFrame.Width, InventoryFrame.Height, _rootConsole, 0, 0);
 
-            Player.Draw(_mapConsole, DungeonMap);
             _rootConsole.Draw();
         }
     }
