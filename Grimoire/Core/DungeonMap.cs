@@ -10,7 +10,7 @@ namespace Grimoire.Core
 {
     public class DungeonMap : Map
     {
-        private static Player player { get; set; }
+        //private static Player player { get; set; }
         public List<Rectangle> Rooms;
         public DungeonMap()
         {
@@ -18,6 +18,7 @@ namespace Grimoire.Core
         }
         public void UpdatePlayerFieldOfView()
         {
+            Player player = Program.Player;
             // Compute the field-of-view based on the player's location and awareness
             ComputeFov(player.X, player.Y, player.FieldOfView, true);
             // Mark all cells in field-of-view as having been explored

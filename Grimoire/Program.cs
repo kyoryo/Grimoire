@@ -21,6 +21,7 @@ namespace Grimoire
         private static RLConsole _statusConsole;
         private static RLConsole _inventoryConsole;
 
+        public static Player Player { get; set; }
         public static DungeonMap DungeonMap { get; private set; }
         public static IRandom Random { get; private set; }
 
@@ -41,7 +42,11 @@ namespace Grimoire
             _statusConsole = new RLConsole(StatusFrame.Width, MessageFrame.Height);
             _inventoryConsole = new RLConsole(StatusFrame.Width, MessageFrame.Height);
 
-            Player player = new Player();
+            Player = new Player();
+            MapGenerator mapGenerator = new MapGenerator(MapFrame.Width, MapFrame.Height, 20, 13, 7);
+            DungeonMap = mapGenerator.CreateMap();
+
+            DungeonMap.UpdatePlayerFieldOfView();
 
 
             _rootConsole.Update += OnRootConsoleUpdate;
@@ -70,14 +75,8 @@ namespace Grimoire
             RLConsole.Blit(_messageConsole, 0, 0, MessageFrame.Width, MessageFrame.Height, _rootConsole, 0, ScreenFrame.Height - MessageFrame.Height);
             RLConsole.Blit(_inventoryConsole, 0, 0, InventoryFrame.Width, InventoryFrame.Height, _rootConsole, 0, 0);
 
+            Player.Draw(_mapConsole, DungeonMap);
             _rootConsole.Draw();
-        }
-        private void UpdatePlayerFOV(object sender, UpdateEventArgs e)
-        {
-            MapGenerator mapGenerator = new MapGenerator(MapFrame.Width, MapFrame.Height, 20, 12, 6);
-            DungeonMap = mapGenerator.CreateMap();
-
-            DungeonMap.UpdatePlayerFieldOfView();
         }
     }
 }
