@@ -66,5 +66,32 @@ namespace Grimoire.Core
                 }
             }
         }
+
+        public bool SetActorPosition (Actor actor, int x, int y)
+        {
+            if (GetCell(x, y).IsWalkable)
+            {
+                SetIsWalkable(actor.X, actor.Y, true);
+
+                //update pos
+                actor.X = x;
+                actor.Y = y;
+
+                SetIsWalkable(actor.X, actor.Y, false);
+
+                if (actor is Player)
+                {
+                    UpdatePlayerFieldOfView();
+                }
+                return true;
+            }
+            return false;
+        }
+
+        private void SetIsWalkable(int x, int y, bool isWalkable)
+        {
+            var getCell = GetCell(x, y);
+            SetCellProperties(getCell.X, getCell.Y, getCell.IsTransparent, isWalkable, getCell.IsExplored);
+        }
     }
 }
