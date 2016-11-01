@@ -1,20 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using RLNET;
+﻿using RLNET;
 using RogueSharp;
-using Grimoire.Domain.Actor;
-using Grimoire.Domain.Interfaces;
 using Grimoire.UI;
+using Grimoire.Interfaces;
 
-namespace Grimoire.Domain.Actors
+namespace Grimoire.Core
 {
     public class Actor : IAmAnActor, IAmDrawable
     {
         public string Name { get; set; }
         public int FieldOfView { get; set; }
+
         public RLColor Color { get; set; }
         public char Symbol { get; set; }
         public int X { get; set; }

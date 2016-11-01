@@ -1,7 +1,8 @@
-﻿using Grimoire.Actor;
-using Grimoire.Domain.Actors.Player;
+﻿using Grimoire.Core;
+using Grimoire.Core.Childs;
 using Grimoire.Helper;
 using Grimoire.Logic.Generator;
+using Grimoire.Processor;
 using Grimoire.UI;
 using Grimoire.UI.Frames;
 using RLNET;
@@ -40,8 +41,8 @@ namespace Grimoire
             _statusConsole = new RLConsole(StatusFrame.Width, MessageFrame.Height);
             _inventoryConsole = new RLConsole(StatusFrame.Width, MessageFrame.Height);
 
-            MapGenerator mapGenerator = new MapGenerator(MapFrame.Width, MapFrame.Height, 20, 12, 6);
-            DungeonMap = mapGenerator.CreateMap();
+            Player player = new Player();
+
 
             _rootConsole.Update += OnRootConsoleUpdate;
             _rootConsole.Render += OnRootConsoleRender;
@@ -73,7 +74,10 @@ namespace Grimoire
         }
         private void UpdatePlayerFOV(object sender, UpdateEventArgs e)
         {
-            Player player = new Player();
+            MapGenerator mapGenerator = new MapGenerator(MapFrame.Width, MapFrame.Height, 20, 12, 6);
+            DungeonMap = mapGenerator.CreateMap();
+
+            DungeonMap.UpdatePlayerFieldOfView();
         }
     }
 }

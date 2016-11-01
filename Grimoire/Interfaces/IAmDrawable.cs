@@ -6,9 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Grimoire.Actor
+namespace Grimoire.Interfaces
 {
-    public interface ICanDrawMap
+    public interface IAmDrawable
     {
         RLColor Color { get; set; }
         char Symbol { get; set; }

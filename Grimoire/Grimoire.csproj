@@ -56,9 +56,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Actor\ICanDrawMap.cs" />
+    <Compile Include="Core\Actor.cs" />
+    <Compile Include="Core\Childs\Player.cs" />
+    <Compile Include="Core\DungeonMap.cs" />
     <Compile Include="Enums\Directions.cs" />
     <Compile Include="Helper\AppHelper.cs" />
+    <Compile Include="Interfaces\IAmAnActor.cs" />
+    <Compile Include="Interfaces\IAmDrawable.cs" />
+    <Compile Include="Processors\MapGenerator.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -72,14 +77,9 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Core\" />
-    <Folder Include="Levels\" />
+    <Folder Include="Actor\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Grimoire.Domain\Grimoire.Domain.csproj">
-      <Project>{72C1AC02-A53D-4ABC-A43E-53091C84D30F}</Project>
-      <Name>Grimoire.Domain</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Grimoire.Logic\Grimoire.Logic.csproj">
       <Project>{9B5FB19A-B5C8-402A-BA32-2AE1355E3588}</Project>
       <Name>Grimoire.Logic</Name>

@@ -1,6 +1,6 @@
 ﻿using Grimoire.UI;
 
-namespace Grimoire.Domain.Actors.Player
+namespace Grimoire.Core.Childs
 {
     public class Player : Actor
     {

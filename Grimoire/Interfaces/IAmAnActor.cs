@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Grimoire.Domain.Actor
+namespace Grimoire.Interfaces
 {
     public interface IAmAnActor
     {

@@ -1,4 +1,4 @@
-﻿using Grimoire.Domain.Actors.Player;
+﻿using Grimoire.Core.Childs;
 using RogueSharp;
 using System;
 using System.Collections.Generic;
@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Grimoire.Logic.Generator
+namespace Grimoire.Core
 {
     public class DungeonMap : Map
     {
@@ -18,7 +18,6 @@ namespace Grimoire.Logic.Generator
         }
         public void UpdatePlayerFieldOfView()
         {
-            
             // Compute the field-of-view based on the player's location and awareness
             ComputeFov(player.X, player.Y, player.FieldOfView, true);
             // Mark all cells in field-of-view as having been explored
