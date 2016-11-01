@@ -7,19 +7,18 @@ using RLNET;
 using RogueSharp;
 using Grimoire.Domain.Actor;
 using Grimoire.Domain.Interfaces;
-using Grimoire.Domain.Model;
 using Grimoire.UI;
 
 namespace Grimoire.Domain.Actors
 {
-    public class Actor : IAmAnActor, IAmDrawable<ObjectDrawingModel>
+    public class Actor : IAmAnActor, IAmDrawable
     {
         public string Name { get; set; }
         public int FieldOfView { get; set; }
+        public RLColor Color { get; set; }
+        public char Symbol { get; set; }
         public int X { get; set; }
         public int Y { get; set; }
-        public int Symbol { get; set; }
-        public RLColor Color { get; set; }
 
         public void Draw(RLConsole console, IMap map)
         {

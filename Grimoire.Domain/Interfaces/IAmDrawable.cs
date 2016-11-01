@@ -1,5 +1,4 @@
-﻿using Grimoire.Domain.Model;
-using RLNET;
+﻿using RLNET;
 using RogueSharp;
 using System;
 using System.Collections.Generic;
@@ -9,8 +8,12 @@ using System.Threading.Tasks;
 
 namespace Grimoire.Domain.Interfaces
 {
-    public interface IAmDrawable<T> where T : ObjectDrawingModel
+    public interface IAmDrawable
     {
+        RLColor Color { get; set; }
+        char Symbol { get; set; }
+        int X { get; set; }
+        int Y { get; set; }
         void Draw(RLConsole console, IMap map);
     }
 }

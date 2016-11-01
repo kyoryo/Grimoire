@@ -1,9 +1,12 @@
 ﻿using Grimoire.Actor;
 using Grimoire.Domain.Actors.Player;
 using Grimoire.Helper;
+using Grimoire.Logic.Generator;
 using Grimoire.UI;
 using Grimoire.UI.Frames;
 using RLNET;
+using RogueSharp.Random;
+using System;
 
 namespace Grimoire
 {
@@ -17,9 +20,16 @@ namespace Grimoire
         private static RLConsole _statusConsole;
         private static RLConsole _inventoryConsole;
 
+        public static DungeonMap DungeonMap { get; private set; }
+        public static IRandom Random { get; private set; }
+
         static void Main()
         {
             string fontFile = AppHelper.GetFontFile();
+            int seed = (int)DateTime.UtcNow.Ticks;
+            Random = new DotNetRandom(seed);
+
+
             //string fontFile = "terminal8x8.png";
             string title = "Grimoire (developing)";
             //var map = new RLConsole(Frame._inventoryWidth, Frame._inventoryHeight);
@@ -29,6 +39,10 @@ namespace Grimoire
             _messageConsole = new RLConsole(MessageFrame.Width, MessageFrame.Height);
             _statusConsole = new RLConsole(StatusFrame.Width, MessageFrame.Height);
             _inventoryConsole = new RLConsole(StatusFrame.Width, MessageFrame.Height);
+
+            MapGenerator mapGenerator = new MapGenerator(MapFrame.Width, MapFrame.Height, 20, 12, 6);
+            DungeonMap = mapGenerator.CreateMap();
+
             _rootConsole.Update += OnRootConsoleUpdate;
             _rootConsole.Render += OnRootConsoleRender;
             _rootConsole.Run();

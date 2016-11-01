@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace Grimoire.Logic.Generator.Interface
 {
-    public interface IRandomNumber : IRandom
+    public interface IRandomNumber
     {
-        int GetRandomNumber();
+        int Next();
     }
 }

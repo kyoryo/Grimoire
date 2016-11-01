@@ -80,6 +80,10 @@
       <Project>{72C1AC02-A53D-4ABC-A43E-53091C84D30F}</Project>
       <Name>Grimoire.Domain</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Grimoire.Logic\Grimoire.Logic.csproj">
+      <Project>{9B5FB19A-B5C8-402A-BA32-2AE1355E3588}</Project>
+      <Name>Grimoire.Logic</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Grimoire.UI\Grimoire.UI.csproj">
       <Project>{E1188304-9615-44AF-A575-867C412B60AD}</Project>
       <Name>Grimoire.UI</Name>

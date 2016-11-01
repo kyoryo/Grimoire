@@ -16,12 +16,9 @@ namespace Grimoire.Logic.Generator
         {
             Rooms = new List<Rectangle>();
         }
-        //public bool SetActorPosition(Actor )
-        //{
-
-        //}
         public void UpdatePlayerFieldOfView()
         {
+            
             // Compute the field-of-view based on the player's location and awareness
             ComputeFov(player.X, player.Y, player.FieldOfView, true);
             // Mark all cells in field-of-view as having been explored

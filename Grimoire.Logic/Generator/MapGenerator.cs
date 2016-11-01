@@ -1,4 +1,5 @@
 ﻿using RogueSharp;
+using RogueSharp.Random;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,7 +16,8 @@ namespace Grimoire.Logic.Generator
         private readonly int _roomMaxSize;
         private readonly int _roomMinSize;
         private readonly DungeonMap _map;
-        private readonly RandomNumber _rng;
+        private static IRandom rng {get;set;} 
+        //private readonly RandomNumber _rng;
 
         public MapGenerator(int width, int height, int maxRooms, int roomMaxSize, int roomMinSize)
         {
@@ -25,18 +27,25 @@ namespace Grimoire.Logic.Generator
             _roomMaxSize = roomMaxSize;
             _roomMinSize = roomMinSize;
             _map = new DungeonMap();
-            _rng = new RandomNumber();
+            //_rng = new RandomNumber();
         }
-
+        public IRandom Seed()
+        {
+            int seed = (int)DateTime.UtcNow.Ticks;
+            rng = new DotNetRandom(seed);
+            return rng;
+        }
         public DungeonMap CreateMap()
         {
+            Seed();
+
             _map.Initialize(_width,_height);
             for (int r = _maxRooms; r > 0; r--)
             {
-                int roomWidth = _rng.Next(_roomMinSize, _roomMaxSize);
-                int roomHeight = _rng.Next(_roomMinSize, _roomMaxSize);
-                int roomXPosition = _rng.Next(0, _width - roomWidth - 1);
-                int roomYPosition = _rng.Next(0, _height - roomHeight - 1);
+                int roomWidth = rng.Next(_roomMinSize, _roomMaxSize);
+                int roomHeight = rng.Next(_roomMinSize, _roomMaxSize);
+                int roomXPosition = rng.Next(0, _width - roomWidth - 1);
+                int roomYPosition = rng.Next(0, _height - roomHeight - 1);
 
                 var newRoom = new Rectangle(roomXPosition, roomYPosition,
                   roomWidth, roomHeight);
