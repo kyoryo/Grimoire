@@ -44,7 +44,7 @@ namespace Grimoire
             _inventoryConsole = new RLConsole(StatusFrame.Width, MessageFrame.Height);
 
             Player = new Player();
-            MapGenerator mapGenerator = new MapGenerator(MapFrame.Width, MapFrame.Height/*, 20, 13, 7*/);
+            MapGenerator mapGenerator = new MapGenerator(MapFrame.Width, MapFrame.Height, 20, 13, 7);
             DungeonMap = mapGenerator.CreateMap();
 
             Commands = new Commands();

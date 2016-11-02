@@ -18,13 +18,13 @@ namespace Grimoire.Processor
         //private readonly RandomNumber _rng;
 
         #region const
-        public MapGenerator(int width, int height/*, int maxRooms, int roomMaxSize, int roomMinSize*/)
+        public MapGenerator(int width, int height, int maxRooms, int roomMaxSize, int roomMinSize)
         {
             _width = width;
             _height = height;
-            //_maxRooms = maxRooms;
-            //_roomMaxSize = roomMaxSize;
-            //_roomMinSize = roomMinSize;
+            _maxRooms = maxRooms;
+            _roomMaxSize = roomMaxSize;
+            _roomMinSize = roomMinSize;
             _map = new DungeonMap();
             //_rng = new RandomNumber();
         }
@@ -33,41 +33,41 @@ namespace Grimoire.Processor
         public DungeonMap CreateMap()
         {
             _map.Initialize(_width,_height);
-            
-            //for (int r = _maxRooms; r > 0; r--)
+
+            for (int r = _maxRooms; r > 0; r--)
+            {
+                int roomWidth = Program.Random.Next(_roomMinSize, _roomMaxSize);
+                int roomHeight = Program.Random.Next(_roomMinSize, _roomMaxSize);
+                int roomXPosition = Program.Random.Next(0, _width - roomWidth - 1);
+                int roomYPosition = Program.Random.Next(0, _height - roomHeight - 1);
+
+                var newRoom = new Rectangle(roomXPosition, roomYPosition,
+                  roomWidth, roomHeight);
+
+                bool newRoomIntersects = _map.Rooms.Any(room => newRoom.Intersects(room));
+
+                if (!newRoomIntersects)
+                {
+                    _map.Rooms.Add(newRoom);
+                }
+            }
+            foreach (Rectangle room in _map.Rooms)
+            {
+                CreateRoom(room);
+            }
+
+            //foreach (var cell in _map.GetAllCells())
             //{
-            //    int roomWidth = Program.Random.Next(_roomMinSize, _roomMaxSize);
-            //    int roomHeight = Program.Random.Next(_roomMinSize, _roomMaxSize);
-            //    int roomXPosition = Program.Random.Next(0, _width - roomWidth - 1);
-            //    int roomYPosition = Program.Random.Next(0, _height - roomHeight - 1);
-
-            //    var newRoom = new Rectangle(roomXPosition, roomYPosition,
-            //      roomWidth, roomHeight);
-
-            //    bool newRoomIntersects = _map.Rooms.Any(room => newRoom.Intersects(room));
-
-            //    if (!newRoomIntersects)
-            //    {
-            //        _map.Rooms.Add(newRoom);
-            //    }
+            //    _map.SetCellProperties(cell.X, cell.Y, true, true); //all walkable temp
             //}
-            //foreach (Rectangle room in _map.Rooms)
+            //foreach(var cell in _map.GetCellsInRows(0, _height - 1))
             //{
-            //    CreateRoom(room);
+            //    _map.SetCellProperties(cell.X, cell.Y, false, false, true);
             //}
-
-            foreach(var cell in _map.GetAllCells())
-            {
-                _map.SetCellProperties(cell.X, cell.Y, true, true); //all walkable temp
-            }
-            foreach(var cell in _map.GetCellsInRows(0, _height - 1))
-            {
-                _map.SetCellProperties(cell.X, cell.Y, false, false, true);
-            }
-            foreach (var cell in _map.GetCellsInColumns(0, _width - 1))
-            {
-                _map.SetCellProperties(cell.X, cell.Y, false,false,true);
-            }
+            //foreach (var cell in _map.GetCellsInColumns(0, _width - 1))
+            //{
+            //    _map.SetCellProperties(cell.X, cell.Y, false,false,true);
+            //}
 
             return _map;
         }

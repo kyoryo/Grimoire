@@ -13,12 +13,11 @@ namespace Grimoire.Core
 {
     public class DungeonMap : Map
     {
-        //private static Player player { get; set; }
-        //public List<Rectangle> Rooms;
-        //public DungeonMap()
-        //{
-        //    Rooms = new List<Rectangle>();
-        //}
+        public List<Rectangle> Rooms;
+        public DungeonMap()
+        {
+            Rooms = new List<Rectangle>();
+        }
         // drawing map every level
         public void Draw(RLConsole mapConsole)
         {
