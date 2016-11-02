@@ -92,5 +92,11 @@ namespace Grimoire.Core
             var getCell = GetCell(x, y);
             SetCellProperties(getCell.X, getCell.Y, getCell.IsTransparent, isWalkable, getCell.IsExplored);
         }
+        public void AddPlayer(Player player)
+        {
+            Program.Player = player;
+            SetIsWalkable(player.X, player.Y, true);
+            UpdatePlayerFieldOfView();
+        }
     }
 }

@@ -1,7 +1,6 @@
 ﻿using Grimoire.Core;
+using Grimoire.Core.Childs;
 using RogueSharp;
-using RogueSharp.Random;
-using System;
 using System.Linq;
 
 namespace Grimoire.Processor
@@ -55,6 +54,7 @@ namespace Grimoire.Processor
             {
                 CreateRoom(room);
             }
+            PlacePlayer();
 
             //foreach (var cell in _map.GetAllCells())
             //{
@@ -81,6 +81,18 @@ namespace Grimoire.Processor
                     _map.SetCellProperties(x, y, true, true, true);
                 }
             }
+        }
+        private void PlacePlayer()
+        {
+            Player player = Program.Player;
+            if (player == null)
+            {
+                player = new Player();
+            }
+            player.X = _map.Rooms[0].Center.X;
+            player.Y = _map.Rooms[0].Center.Y;
+
+            _map.AddPlayer(player);
         }
     }
 }

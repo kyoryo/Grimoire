@@ -63,6 +63,7 @@
     <Compile Include="Helper\AppHelper.cs" />
     <Compile Include="Interfaces\IAmAnActor.cs" />
     <Compile Include="Interfaces\IAmDrawable.cs" />
+    <Compile Include="Models\PropTestModel.cs" />
     <Compile Include="Processors\Commands.cs" />
     <Compile Include="Processors\MapGenerator.cs" />
     <Compile Include="Program.cs" />
