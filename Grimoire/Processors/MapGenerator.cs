@@ -1,6 +1,7 @@
 ﻿using Grimoire.Core;
 using Grimoire.Core.Childs;
 using RogueSharp;
+using System;
 using System.Linq;
 
 namespace Grimoire.Processor
@@ -33,6 +34,8 @@ namespace Grimoire.Processor
         {
             _map.Initialize(_width,_height);
 
+
+            
             for (int r = _maxRooms; r > 0; r--)
             {
                 int roomWidth = Program.Random.Next(_roomMinSize, _roomMaxSize);
@@ -54,7 +57,25 @@ namespace Grimoire.Processor
             {
                 CreateRoom(room);
             }
-            PlacePlayer();
+            for (int r = 1; r < _map.Rooms.Count; r++)
+            {
+                int previousRoomCenterX = _map.Rooms[r - 1].Center.X;
+                int previousRoomCenterY = _map.Rooms[r - 1].Center.Y;
+                int currentRoomCenterX = _map.Rooms[r].Center.X;
+                int currentRoomCenterY = _map.Rooms[r].Center.Y;
+
+                if (Program.Random.Next(1, 2) == 1)
+                {
+                    CreateHorizontalHallways(previousRoomCenterX, currentRoomCenterX, previousRoomCenterY);
+                    CreateVerticalHallways(previousRoomCenterY, currentRoomCenterY, currentRoomCenterX);
+                }
+                else
+                {
+                    CreateVerticalHallways(previousRoomCenterY, currentRoomCenterY, previousRoomCenterX);
+                    CreateHorizontalHallways(previousRoomCenterX, currentRoomCenterX, currentRoomCenterY);
+                }
+            }
+
 
             //foreach (var cell in _map.GetAllCells())
             //{
@@ -68,6 +89,7 @@ namespace Grimoire.Processor
             //{
             //    _map.SetCellProperties(cell.X, cell.Y, false,false,true);
             //}
+            PlacePlayer();
 
             return _map;
         }
@@ -93,6 +115,20 @@ namespace Grimoire.Processor
             player.Y = _map.Rooms[0].Center.Y;
 
             _map.AddPlayer(player);
+        }
+        private void CreateHorizontalHallways(int xStart, int xEnd, int yPos)
+        {
+            for(int x=Math.Min(xStart,xEnd); x<= Math.Max(xStart, xEnd); x++)
+            {
+                _map.SetCellProperties(x, yPos, true, true);
+            }
+        }
+        private void CreateVerticalHallways(int yStart, int yEnd, int xPos)
+        {
+            for (int y = Math.Min(yStart, yEnd); y <= Math.Max(yStart, yEnd); y++)
+            {
+                _map.SetCellProperties(xPos, y, true, true);
+            }
         }
     }
 }
