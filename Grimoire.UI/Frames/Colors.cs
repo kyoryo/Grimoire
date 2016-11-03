@@ -28,5 +28,7 @@ namespace Grimoire.UI
         public static RLColor Map = FloorBackground;
 
         public static RLColor Player = DbLight;
+        public static RLColor Text = RLColor.White;
+        public static RLColor Gold = DbSun;
     }
 }

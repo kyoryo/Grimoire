@@ -23,7 +23,6 @@ namespace Grimoire
         private static RLConsole _statusConsole;
         private static RLConsole _inventoryConsole;
         private static bool _renderRequired = true;
-        private static int _turn;
 
         public static Player Player { get; set; }
         public static DungeonMap DungeonMap { get; private set; }
@@ -99,7 +98,6 @@ namespace Grimoire
             }
             if (isPlayerAct)
             {
-                MessageLog.Add(string.Format("Turn: {0}", ++_turn));
                 _renderRequired = true;
             }
         }
@@ -110,6 +108,8 @@ namespace Grimoire
                 DungeonMap.Draw(_mapConsole);
                 Player.Draw(_mapConsole, DungeonMap);
                 MessageLog.Draw(_messageConsole);
+                Player.DrawStats(_statusConsole);
+
                 RLConsole.Blit(_mapConsole, 0, 0, MapFrame.Width, MapFrame.Height, _rootConsole, 0, InventoryFrame.Height);
                 RLConsole.Blit(_statusConsole, 0, 0, StatusFrame.Width, StatusFrame.Height, _rootConsole, MapFrame.Width, 0);
                 RLConsole.Blit(_messageConsole, 0, 0, MessageFrame.Width, MessageFrame.Height, _rootConsole, 0, ScreenFrame.Height - MessageFrame.Height);

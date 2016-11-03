@@ -26,5 +26,7 @@ namespace Grimoire.UI.Palettes
         public static RLColor Alternate = new RLColor(129, 121, 107);
         public static RLColor AlternateDarker = new RLColor(97, 89, 75);
         public static RLColor AlternateDarkest = new RLColor(71, 62, 45);
+
+        
     }
 }
