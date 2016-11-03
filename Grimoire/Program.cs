@@ -23,11 +23,13 @@ namespace Grimoire
         private static RLConsole _statusConsole;
         private static RLConsole _inventoryConsole;
         private static bool _renderRequired = true;
+        private static int _turn;
 
         public static Player Player { get; set; }
         public static DungeonMap DungeonMap { get; private set; }
         public static IRandom Random { get; private set; }
         public static Commands Commands { get; private set; }
+        public static MessageLog MessageLog { get; private set; }
 
         static void Main()
         {
@@ -37,13 +39,15 @@ namespace Grimoire
 
             string title = "Grimoire (developing)";
 
+            MessageLog = new MessageLog();
+            MessageLog.Add($"Level 1 with seed:'{seed}'");
+
             _rootConsole = new RLRootConsole(fontFile, ScreenFrame.Width, ScreenFrame.Height, _charWidth, _charHeight, 1f, title);
             _mapConsole = new RLConsole(MapFrame.Width, MapFrame.Height);
             _messageConsole = new RLConsole(MessageFrame.Width, MessageFrame.Height);
             _statusConsole = new RLConsole(StatusFrame.Width, MessageFrame.Height);
             _inventoryConsole = new RLConsole(StatusFrame.Width, MessageFrame.Height);
 
-            //Player = new Player();
             MapGenerator mapGenerator = new MapGenerator(MapFrame.Width, MapFrame.Height, 20, 13, 7);
             DungeonMap = mapGenerator.CreateMap();
 
@@ -62,13 +66,10 @@ namespace Grimoire
             _mapConsole.SetBackColor(0, 0, MapFrame.Width, MapFrame.Height, Colors.FloorBackground);
             _mapConsole.Print(1, 1, "for map", Colors.TextHeading);
 
-            _messageConsole.SetBackColor(0, 0, MessageFrame.Width, MessageFrame.Height, Colors.Message);
-            _messageConsole.Print(1, 1, "for message", Colors.TextHeading);
-
-            _statusConsole.SetBackColor(0, 0, StatusFrame.Width, StatusFrame.Height, Colors.Status);
+            _statusConsole.SetBackColor(0, 0, StatusFrame.Width, StatusFrame.Height, Colors.FloorBackground);
             _statusConsole.Print(1, 1, "for status", Colors.TextHeading);
 
-            _inventoryConsole.SetBackColor(0, 0, InventoryFrame.Width, InventoryFrame.Height, Colors.Inventory);
+            _inventoryConsole.SetBackColor(0, 0, InventoryFrame.Width, InventoryFrame.Height, Colors.FloorBackground);
             _inventoryConsole.Print(1, 1,"for invent", Colors.TextHeading);
 
             bool isPlayerAct = false;
@@ -98,6 +99,7 @@ namespace Grimoire
             }
             if (isPlayerAct)
             {
+                MessageLog.Add(string.Format("Turn: {0}", ++_turn));
                 _renderRequired = true;
             }
         }
@@ -107,7 +109,7 @@ namespace Grimoire
             {
                 DungeonMap.Draw(_mapConsole);
                 Player.Draw(_mapConsole, DungeonMap);
-
+                MessageLog.Draw(_messageConsole);
                 RLConsole.Blit(_mapConsole, 0, 0, MapFrame.Width, MapFrame.Height, _rootConsole, 0, InventoryFrame.Height);
                 RLConsole.Blit(_statusConsole, 0, 0, StatusFrame.Width, StatusFrame.Height, _rootConsole, MapFrame.Width, 0);
                 RLConsole.Blit(_messageConsole, 0, 0, MessageFrame.Width, MessageFrame.Height, _rootConsole, 0, ScreenFrame.Height - MessageFrame.Height);

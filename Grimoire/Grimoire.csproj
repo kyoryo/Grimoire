@@ -66,6 +66,7 @@
     <Compile Include="Models\PropTestModel.cs" />
     <Compile Include="Processors\Commands.cs" />
     <Compile Include="Processors\MapGenerator.cs" />
+    <Compile Include="Processors\MessageLog.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
