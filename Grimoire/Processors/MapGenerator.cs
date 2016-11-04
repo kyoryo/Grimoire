@@ -1,6 +1,8 @@
 ﻿using Grimoire.Core;
 using Grimoire.Core.Childs;
+using Grimoire.Enemys;
 using RogueSharp;
+using RogueSharp.DiceNotation;
 using System;
 using System.Linq;
 
@@ -89,6 +91,7 @@ namespace Grimoire.Processor
             //{
             //    _map.SetCellProperties(cell.X, cell.Y, false,false,true);
             //}
+            PlaceEnemys();
             PlacePlayer();
 
             return _map;
@@ -128,6 +131,30 @@ namespace Grimoire.Processor
             for (int y = Math.Min(yStart, yEnd); y <= Math.Max(yStart, yEnd); y++)
             {
                 _map.SetCellProperties(xPos, y, true, true);
+            }
+        }
+        private void PlaceEnemys()
+        {
+            foreach(var room in _map.Rooms)
+            {
+                //monster chance to spawning
+                if (Dice.Roll("1D10") < 7)
+                {
+                    //room spawn rate
+                    var enemysNumber = Dice.Roll("1D4");
+                    for (var i = 0; i < enemysNumber; i++)
+                    {
+                        Point randomRoomLocation = _map.GetRandomWalkableLocationInTheRoom(room);
+                        if (randomRoomLocation != null)
+                        {
+                            // Temporarily hard code this monster to be created at level 1
+                            var monster = Goblin.Create(1);
+                            monster.X = randomRoomLocation.X;
+                            monster.Y = randomRoomLocation.Y;
+                            _map.AddEnemy(monster);
+                        }
+                    }
+                }
             }
         }
     }

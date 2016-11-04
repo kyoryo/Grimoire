@@ -59,6 +59,8 @@
     <Compile Include="Core\Actor.cs" />
     <Compile Include="Core\Childs\Player.cs" />
     <Compile Include="Core\DungeonMap.cs" />
+    <Compile Include="Core\Enemy.cs" />
+    <Compile Include="Enemys\Goblin.cs" />
     <Compile Include="Enums\Directions.cs" />
     <Compile Include="Helper\AppHelper.cs" />
     <Compile Include="Interfaces\IAmAnActor.cs" />

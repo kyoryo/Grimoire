@@ -30,5 +30,7 @@ namespace Grimoire.UI
         public static RLColor Player = DbLight;
         public static RLColor Text = RLColor.White;
         public static RLColor Gold = DbSun;
+
+        public static RLColor Goblin = DbGrass;
     }
 }

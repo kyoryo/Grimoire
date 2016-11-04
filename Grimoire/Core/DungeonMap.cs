@@ -13,9 +13,11 @@ namespace Grimoire.Core
 {
     public class DungeonMap : Map
     {
+        private List<Enemy> Enemys;
         public List<Rectangle> Rooms;
         public DungeonMap()
         {
+            Enemys = new List<Enemy>();
             Rooms = new List<Rectangle>();
         }
         // drawing map every level
@@ -26,6 +28,11 @@ namespace Grimoire.Core
             {
                 SetConsoleSymbolForCell(mapConsole, cell);
             }
+            foreach (var enemy in Enemys)
+            {
+                enemy.Draw(mapConsole, this);
+            }
+
         }
         private void SetConsoleSymbolForCell(RLConsole console, Cell cell)
         {
@@ -98,5 +105,51 @@ namespace Grimoire.Core
             SetIsWalkable(player.X, player.Y, true);
             UpdatePlayerFieldOfView();
         }
+        public void AddEnemy(Enemy enemy)
+        {
+            Enemys.Add(enemy);
+            SetIsWalkable(enemy.X, enemy.Y, true);
+        }
+        /// <summary>
+        /// Get Random room that is walkable
+        /// </summary>
+        /// <param name="room"></param>
+        /// <returns></returns>
+        public Point GetRandomWalkableLocationInTheRoom(Rectangle room)
+        {
+            if (DoesRoomHaveWalkableSpace(room))
+            {
+                for (int i = 0; i < 100; i++)
+                {
+                    int x = Program.Random.Next(1, room.Width - 2) + room.X;
+                    int y = Program.Random.Next(1, room.Height - 2) + room.Y;
+                    if (IsWalkable(x, y))
+                    {
+                        return new Point(x, y);
+                    }
+                }
+            }
+            return null;
+        }
+        /// <summary>
+        /// Iterate through each Cell in room
+        /// </summary>
+        /// <param name="room"></param>
+        /// <returns></returns>
+        public bool DoesRoomHaveWalkableSpace(Rectangle room)
+        {
+            for (int x= 1; x <= room.Width - 2; x++)
+            {
+                for (int y =1; y <= room.Width -2; y++)
+                {
+                    if (IsWalkable(x + room.X, y + room.Y))
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+        
     }
 }
