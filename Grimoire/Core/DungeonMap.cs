@@ -21,16 +21,24 @@ namespace Grimoire.Core
             Rooms = new List<Rectangle>();
         }
         // drawing map every level
-        public void Draw(RLConsole mapConsole)
+        public void Draw(RLConsole mapConsole, RLConsole statConsole)
         {
-            mapConsole.Clear();
+            //mapConsole.Clear();
             foreach (var cell in GetAllCells())
             {
                 SetConsoleSymbolForCell(mapConsole, cell);
             }
+
+            statConsole.Clear();
+            int counter = 0;
             foreach (var enemy in Enemys)
             {
                 enemy.Draw(mapConsole, this);
+                if (IsInFov(enemy.X, enemy.Y))
+                {
+                    enemy.DrawStats(statConsole, counter);
+                    counter++;
+                }
             }
 
         }

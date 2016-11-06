@@ -105,10 +105,14 @@ namespace Grimoire
         {
             if (_renderRequired)
             {
-                DungeonMap.Draw(_mapConsole);
+                _mapConsole.Clear();
+                _statusConsole.Clear();
+                _messageConsole.Clear();
+
+                DungeonMap.Draw(_mapConsole, _statusConsole);
                 Player.Draw(_mapConsole, DungeonMap);
-                MessageLog.Draw(_messageConsole);
                 Player.DrawStats(_statusConsole);
+                MessageLog.Draw(_messageConsole);
 
                 RLConsole.Blit(_mapConsole, 0, 0, MapFrame.Width, MapFrame.Height, _rootConsole, 0, InventoryFrame.Height);
                 RLConsole.Blit(_statusConsole, 0, 0, StatusFrame.Width, StatusFrame.Height, _rootConsole, MapFrame.Width, 0);

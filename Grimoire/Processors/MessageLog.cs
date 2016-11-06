@@ -26,7 +26,7 @@ namespace Grimoire.Processors
         }
         public void Draw(RLConsole console)
         {
-            console.Clear();
+            //console.Clear();
             string[] lines = _lines.ToArray();
             for (var i = 0; i < lines.Length; i++)
             {
