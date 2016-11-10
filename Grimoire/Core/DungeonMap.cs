@@ -23,19 +23,18 @@ namespace Grimoire.Core
         // drawing map every level
         public void Draw(RLConsole mapConsole, RLConsole statConsole)
         {
-            //mapConsole.Clear();
             foreach (var cell in GetAllCells())
             {
                 SetConsoleSymbolForCell(mapConsole, cell);
             }
 
-            statConsole.Clear();
             int counter = 0;
             foreach (var enemy in Enemys)
             {
                 enemy.Draw(mapConsole, this);
                 if (IsInFov(enemy.X, enemy.Y))
                 {
+
                     enemy.DrawStats(statConsole, counter);
                     counter++;
                 }
@@ -110,13 +109,13 @@ namespace Grimoire.Core
         public void AddPlayer(Player player)
         {
             Program.Player = player;
-            SetIsWalkable(player.X, player.Y, true);
+            SetIsWalkable(player.X, player.Y, false);
             UpdatePlayerFieldOfView();
         }
         public void AddEnemy(Enemy enemy)
         {
             Enemys.Add(enemy);
-            SetIsWalkable(enemy.X, enemy.Y, true);
+            SetIsWalkable(enemy.X, enemy.Y, false);
         }
         /// <summary>
         /// Get Random room that is walkable

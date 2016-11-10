@@ -52,6 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Generator\Calculate.cs" />
     <Compile Include="Generator\Interface\IRandomNumber.cs" />
     <Compile Include="Generator\RandomNumber.cs" />
     <Compile Include="Generator\SeedGenerator.cs" />

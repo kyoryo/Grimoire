@@ -15,8 +15,8 @@ namespace Grimoire.Core
             int yPos = 13 + (pos * 2);
             statConsole.Print(1, yPos, Symbol.ToString(), Colors.TextHeading);
 
-            int width = Convert.ToInt32((double)(Health / HealthMax) * 16.0);
-            int remWidth = 16 - width;
+            int width = Convert.ToInt32(((double)Health / (double)HealthMax) * 16.0);
+            int remWidth = 16 - width; //remaining width
 
             statConsole.SetBackColor(3, yPos, width, 1, Colors.Primary);
             statConsole.SetBackColor(3+width, yPos, remWidth, 1, Colors.Primary);

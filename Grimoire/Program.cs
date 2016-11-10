@@ -44,32 +44,34 @@ namespace Grimoire
             _rootConsole = new RLRootConsole(fontFile, ScreenFrame.Width, ScreenFrame.Height, _charWidth, _charHeight, 1f, title);
             _mapConsole = new RLConsole(MapFrame.Width, MapFrame.Height);
             _messageConsole = new RLConsole(MessageFrame.Width, MessageFrame.Height);
-            _statusConsole = new RLConsole(StatusFrame.Width, MessageFrame.Height);
-            _inventoryConsole = new RLConsole(StatusFrame.Width, MessageFrame.Height);
+            _statusConsole = new RLConsole(StatusFrame.Width, StatusFrame.Height);
+            _inventoryConsole = new RLConsole(InventoryFrame.Width, InventoryFrame.Height);
 
-            MapGenerator mapGenerator = new MapGenerator(MapFrame.Width, MapFrame.Height, 20, 13, 7);
+            MapGenerator mapGenerator = new MapGenerator(MapFrame.Width, MapFrame.Height, 60, 13, 7);
             DungeonMap = mapGenerator.CreateMap();
-
-            Commands = new Commands();
-
             DungeonMap.UpdatePlayerFieldOfView();
 
 
+            Commands = new Commands();
+
             _rootConsole.Update += OnRootConsoleUpdate;
             _rootConsole.Render += OnRootConsoleRender;
+
+
+            _inventoryConsole.SetBackColor(0, 0, InventoryFrame.Width, InventoryFrame.Height, Colors.FloorBackground);
+            _inventoryConsole.Print(1, 1, "for invent", Colors.TextHeading);
+
             _rootConsole.Run();
 
         }
         private static void OnRootConsoleUpdate(object sender, UpdateEventArgs e)
         {
-            _mapConsole.SetBackColor(0, 0, MapFrame.Width, MapFrame.Height, Colors.FloorBackground);
-            _mapConsole.Print(1, 1, "for map", Colors.TextHeading);
+            //_mapConsole.SetBackColor(0, 0, MapFrame.Width, MapFrame.Height, Colors.FloorBackground);
+            //_mapConsole.Print(1, 1, "for map", Colors.TextHeading);
 
-            _statusConsole.SetBackColor(0, 0, StatusFrame.Width, StatusFrame.Height, Colors.FloorBackground);
-            _statusConsole.Print(1, 1, "for status", Colors.TextHeading);
+            //_statusConsole.SetBackColor(0, 0, StatusFrame.Width, StatusFrame.Height, Colors.FloorBackground);
+            //_statusConsole.Print(1, 1, "for status", Colors.TextHeading);
 
-            _inventoryConsole.SetBackColor(0, 0, InventoryFrame.Width, InventoryFrame.Height, Colors.FloorBackground);
-            _inventoryConsole.Print(1, 1,"for invent", Colors.TextHeading);
 
             bool isPlayerAct = false;
             var pressedKey = _rootConsole.Keyboard.GetKeyPress();
