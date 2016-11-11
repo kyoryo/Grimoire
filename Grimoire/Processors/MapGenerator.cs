@@ -35,8 +35,6 @@ namespace Grimoire.Processor
         public DungeonMap CreateMap()
         {
             _map.Initialize(_width,_height);
-
-
             
             for (int r = _maxRooms; r > 0; r--)
             {

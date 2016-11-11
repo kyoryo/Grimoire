@@ -157,6 +157,19 @@ namespace Grimoire.Core
             }
             return false;
         }
+        /// <summary>
+        /// remove enemy if die
+        /// </summary>
+        /// <param name="enemy"></param>
+        public void RemoveEnemy(Enemy enemy)
+        {
+            Enemys.Remove(enemy);
+            SetIsWalkable(enemy.X, enemy.Y, true);
+        }
+        public Enemy GetEnemyAt(int x, int y)
+        {
+            return Enemys.FirstOrDefault(ePos => ePos.X == x && ePos.Y == y);
+        }
         
     }
 }
