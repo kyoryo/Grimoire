@@ -19,7 +19,7 @@ namespace Grimoire.Core
             int remWidth = 16 - width; //remaining width
 
             statConsole.SetBackColor(3, yPos, width, 1, Colors.Primary);
-            statConsole.SetBackColor(3+width, yPos, remWidth, 1, Colors.Primary);
+            statConsole.SetBackColor(3+width, yPos, remWidth, 1, Colors.PrimaryDarkest);
 
             statConsole.Print(2, yPos, $": {Name}", Colors.DbLight);
         }

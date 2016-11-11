@@ -65,10 +65,12 @@
     <Compile Include="Helper\AppHelper.cs" />
     <Compile Include="Interfaces\IAmAnActor.cs" />
     <Compile Include="Interfaces\IAmDrawable.cs" />
+    <Compile Include="Interfaces\IAmScheduleable.cs" />
     <Compile Include="Models\PropTestModel.cs" />
     <Compile Include="Processors\Commands.cs" />
     <Compile Include="Processors\MapGenerator.cs" />
     <Compile Include="Processors\MessageLog.cs" />
+    <Compile Include="Processors\Schedule.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
