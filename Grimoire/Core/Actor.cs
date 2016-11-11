@@ -1,11 +1,12 @@
-﻿using RLNET;
+﻿using System.Runtime.Remoting.Messaging;
+using RLNET;
 using RogueSharp;
 using Grimoire.UI;
 using Grimoire.Interfaces;
 
 namespace Grimoire.Core
 {
-    public class Actor : IAmAnActor, IAmDrawable
+    public class Actor : IAmAnActor, IAmDrawable, IAmScheduleable
     {
         public string Name { get; set; }
         public int FieldOfView { get; set; }
@@ -61,7 +62,7 @@ namespace Grimoire.Core
         private int _speed;
         public int Speed
         {
-            get { return _speed; }
+            get { return _speed ; }
             set { _speed = value; }
         }
 
@@ -87,5 +88,7 @@ namespace Grimoire.Core
                 console.Set(X, Y, Colors.Floor, Colors.FloorBackground, '.');
             }
         }
+
+        public int Time { get { return Speed; } }
     }
 }

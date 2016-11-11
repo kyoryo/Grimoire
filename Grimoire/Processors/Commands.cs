@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Grimoire.Core.Childs;
+using RogueSharp;
 using RogueSharp.DiceNotation;
 
 namespace Grimoire.Processors
@@ -141,6 +142,17 @@ namespace Grimoire.Processors
                 Program.MessageLog.Add($" {defender.Name} died and dropped {defender.Money} silver");
             }
 
+        }
+
+        public void MoveEnemy(Enemy enemy, Cell cell)
+        {
+            if (!Program.DungeonMap.SetActorPosition(enemy, cell.X, cell.Y))
+            {
+                if (Program.Player.X == cell.X && Program.Player.Y == cell.Y)
+                {
+                    Attack(enemy, Program.Player);
+                }
+            }
         }
     }
 }

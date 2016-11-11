@@ -101,7 +101,7 @@ namespace Grimoire.Core
             return false;
         }
 
-        private void SetIsWalkable(int x, int y, bool isWalkable)
+        public void SetIsWalkable(int x, int y, bool isWalkable)
         {
             var getCell = GetCell(x, y);
             SetCellProperties(getCell.X, getCell.Y, getCell.IsTransparent, isWalkable, getCell.IsExplored);

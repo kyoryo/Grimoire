@@ -29,6 +29,7 @@ namespace Grimoire
         public static IRandom Random { get; private set; }
         public static Commands Commands { get; private set; }
         public static MessageLog MessageLog { get; private set; }
+        public static Schedule Schedule { get; private set; }
 
         static void Main()
         {

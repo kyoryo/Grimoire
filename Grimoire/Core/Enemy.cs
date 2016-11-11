@@ -10,6 +10,8 @@ namespace Grimoire.Core
 {
     public class Enemy : Actor
     {
+        public int? TurnsAlerted { get; set; }
+
         public void DrawStats(RLConsole statConsole, int pos)
         {
             int yPos = 13 + (pos * 2);
