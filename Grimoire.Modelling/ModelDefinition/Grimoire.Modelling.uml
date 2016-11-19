@@ -1,0 +1,278 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm10="http://schemas.microsoft.com/dsltools/UseCaseModel" xmlns:dm11="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner"
+  dslVersion="1.0.0.0"
+  Id="91c687f8-2f3c-4054-8040-13c71050b27f"
+  name="Grimoire.Modelling" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <profileInstances>
+    <packageHasProfileInstances
+      Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b">
+      <profileInstance
+        Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791"
+        name="StandardProfileL2" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances
+      Id="29349502-908c-4fda-9054-c48619c59ed0">
+      <profileInstance
+        Id="532ea607-fb19-44b8-8502-3351b05452be"
+        name="StandardProfileL3" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <packageHasNamedElement>
+      <actor
+        Id="551b1956-50bd-4206-9757-c93b975b9fdd"
+        name="Player"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="73be7dba-9c92-41bc-b3f7-48a50b418fed"
+            isDerived="false"
+            sourceEndRoleName="Player"
+            targetEndRoleName="Menentukan Angka Random"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="15ff38b7-289c-4b0d-b2af-ed46097b2450"
+              LastKnownName="Menentukan Angka Random"
+              LastKnownLocation="Grimoire.Modelling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="d7a002fc-47cb-42ab-a29e-aa1788fde84e"
+                  name="Player"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="9a269831-173b-415b-9ff8-190f28dcb981"
+                  name="Menentukan Angka Random"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="f5778c96-05a0-4dce-9c9b-63f7562e9446"
+            isDerived="false"
+            sourceEndRoleName="Player"
+            targetEndRoleName="Membuat Peta Berdasarkan MST"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="40af5670-ee26-4127-945b-ed3629669bee"
+              LastKnownName="Membuat Peta Berdasarkan MST"
+              LastKnownLocation="Grimoire.Modelling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="d15d2c15-2610-40f8-9c39-14f913f75963"
+                  name="Player"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="603a049f-d0d5-4688-a9e1-8eaa5ec2f18f"
+                  name="Membuat Peta Berdasarkan MST"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="06da8041-6d34-49da-8914-b5059e6bb644"
+            isDerived="false"
+            sourceEndRoleName="Player"
+            targetEndRoleName="Menentukan Behaviour Musuh"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="0fd3df7c-f347-4dfd-ab75-4710d8a2e4a6"
+              LastKnownName="Menentukan Behaviour Musuh"
+              LastKnownLocation="Grimoire.Modelling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="cc60078a-80e2-4113-a85c-d554918b6faf"
+                  name="Player"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="825c05b3-9995-4643-bdd8-4d8f4264c1bc"
+                  name="Menentukan Behaviour Musuh"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <subsystem
+        Id="6fc1b108-cb24-40d3-9199-04d6ff6e883a"
+        name="Subsystem1"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <subsystem
+        Id="a31a6eee-4899-402b-b182-651940b19be0"
+        name="System"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <artifact
+        Id="15b707df-bda1-49c9-9558-f868d276d1b6"
+        name="Artifact1"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="15ff38b7-289c-4b0d-b2af-ed46097b2450"
+        name="Menentukan Angka Random"
+        isAbstract="false"
+        isLeaf="false">
+        <subjects>
+          <subsystemMoniker
+            Id="a31a6eee-4899-402b-b182-651940b19be0"
+            LastKnownName="System"
+            LastKnownLocation="Grimoire.Modelling.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="40af5670-ee26-4127-945b-ed3629669bee"
+        name="Membuat Peta Berdasarkan MST"
+        isAbstract="false"
+        isLeaf="false">
+        <subjects>
+          <subsystemMoniker
+            Id="a31a6eee-4899-402b-b182-651940b19be0"
+            LastKnownName="System"
+            LastKnownLocation="Grimoire.Modelling.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="0fd3df7c-f347-4dfd-ab75-4710d8a2e4a6"
+        name="Menentukan Behaviour Musuh"
+        isAbstract="false"
+        isLeaf="false">
+        <subjects>
+          <subsystemMoniker
+            Id="a31a6eee-4899-402b-b182-651940b19be0"
+            LastKnownName="System"
+            LastKnownLocation="Grimoire.Modelling.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <activity
+        Id="af767a83-bd0e-46df-bfdf-a16a1c246cdf"
+        name="AcD1"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false"
+        isReentrant="false"
+        isReadOnly="false"
+        isSingleExecution="false">
+        <nodes>
+          <initialNode
+            Id="d504774e-7daa-46f5-b43f-d3882d62aeb3"
+            name="Initial1"
+            isLeaf="false" />
+          <activityParameterNode
+            Id="6eed5c72-bf7d-46e6-b6ad-b421b397b609"
+            name="ActivityParameter1"
+            isLeaf="false"
+            ordering="Unordered"
+            isControlType="false">
+            <upperBound>
+              <literalInteger
+                Id="e6c60a93-2ee0-4b92-92d2-c34ac6c4392c"
+                name="2147483647"
+                value="2147483647" />
+            </upperBound>
+          </activityParameterNode>
+          <activityParameterNode
+            Id="a5863d30-56b4-4dd6-89f9-f333d2bfe489"
+            name="ActivityParameter1"
+            isLeaf="false"
+            ordering="Unordered"
+            isControlType="false">
+            <upperBound>
+              <literalInteger
+                Id="359a0f01-5ff9-46ed-ba9b-1883b9a1a681"
+                name="2147483647"
+                value="2147483647" />
+            </upperBound>
+          </activityParameterNode>
+        </nodes>
+      </activity>
+    </packageHasNamedElement>
+  </packagedElements>
+  <primitiveType
+    Id="220a3521-e091-4221-bae9-3ef9018e845c"
+    name="Integer"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
+    name="Boolean"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+    name="String"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="3ab42e7d-4969-445a-b209-471f5cb8209c"
+    name="UnlimitedNatural"
+    isAbstract="false"
+    isLeaf="false" />
+</modelStoreModel>

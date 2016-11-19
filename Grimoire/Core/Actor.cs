@@ -89,6 +89,6 @@ namespace Grimoire.Core
             }
         }
 
-        public int Time { get { return Speed; } }
+        public int Time => Speed;
     }
 }
