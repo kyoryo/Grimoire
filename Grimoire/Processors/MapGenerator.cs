@@ -5,6 +5,8 @@ using RogueSharp;
 using RogueSharp.DiceNotation;
 using System;
 using System.Linq;
+using Grimoire.Logic.Generator;
+using Grimoire.Processors;
 
 namespace Grimoire.Processor
 {
@@ -35,17 +37,16 @@ namespace Grimoire.Processor
         public DungeonMap CreateMap()
         {
             _map.Initialize(_width,_height);
-            
-            for (int r = _maxRooms; r > 0; r--)
+            var pointsCalculator = new PointsCalculator();
+            var points = pointsCalculator.GetPointInsideCircle(48,_maxRooms);
+            foreach (var point in points)
             {
                 int roomWidth = Program.Random.Next(_roomMinSize, _roomMaxSize);
                 int roomHeight = Program.Random.Next(_roomMinSize, _roomMaxSize);
-                int roomXPosition = Program.Random.Next(0, _width - roomWidth - 1);
-                int roomYPosition = Program.Random.Next(0, _height - roomHeight - 1);
-
-                var newRoom = new Rectangle(roomXPosition, roomYPosition,
-                  roomWidth, roomHeight);
-
+                int roomXPosition = point.X;
+                int roomYPosition = point.Y;
+                
+                var newRoom = new Rectangle(roomXPosition,roomYPosition,roomWidth,roomHeight);
                 bool newRoomIntersects = _map.Rooms.Any(room => newRoom.Intersects(room));
 
                 if (!newRoomIntersects)
@@ -53,6 +54,24 @@ namespace Grimoire.Processor
                     _map.Rooms.Add(newRoom);
                 }
             }
+
+            //for (int r = _maxRooms; r > 0; r--)
+            //{
+            //    int roomWidth = Program.Random.Next(_roomMinSize, _roomMaxSize);
+            //    int roomHeight = Program.Random.Next(_roomMinSize, _roomMaxSize);
+            //    int roomXPosition = Program.Random.Next(0, _width - roomWidth - 1);
+            //    int roomYPosition = Program.Random.Next(0, _height - roomHeight - 1);
+
+            //    var newRoom = new Rectangle(roomXPosition, roomYPosition,
+            //      roomWidth, roomHeight);
+
+            //    bool newRoomIntersects = _map.Rooms.Any(room => newRoom.Intersects(room));
+
+            //    if (!newRoomIntersects)
+            //    {
+            //        _map.Rooms.Add(newRoom);
+            //    }
+            //}
             foreach (Rectangle room in _map.Rooms)
             {
                 CreateRoom(room);

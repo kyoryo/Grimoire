@@ -33,12 +33,15 @@ namespace Grimoire
 
         static void Main()
         {
-            //int radius = 100;
-            //var circle = new CirclePoints();
+            //int radius = MapFrame.Height;
+            ////int ellipseWidth = MapFrame.Width/2;
+            ////int ellipseHeight = MapFrame.Height/2;
+            //var circle = new PointsCalculator();
             //var randomPoints = circle.GetPointInsideCircle(radius, 20);
+            ////var randomPoints = circle.GetPointInsideCircle(ellipseWidth,ellipseHeight, 20);
             //foreach (var point in randomPoints)
             //{
-            //    Console.WriteLine("X = "+ point.X);
+            //    Console.WriteLine("X = " + point.X);
             //    Console.WriteLine("Y = " + point.Y);
 
             //}
@@ -58,7 +61,7 @@ namespace Grimoire
             _statusConsole = new RLConsole(StatusFrame.Width, StatusFrame.Height);
             _inventoryConsole = new RLConsole(InventoryFrame.Width, InventoryFrame.Height);
 
-            MapGenerator mapGenerator = new MapGenerator(MapFrame.Width, MapFrame.Height, 60, 13, 7);
+            MapGenerator mapGenerator = new MapGenerator(MapFrame.Width, MapFrame.Height, 20, 13, 7);
             //MapGenerator mapGenerator = new MapGenerator(100, 100, 60, 13, 7);
             DungeonMap = mapGenerator.CreateMap();
             DungeonMap.UpdatePlayerFieldOfView();
