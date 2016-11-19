@@ -19,7 +19,7 @@ namespace Grimoire.Processor
         //private static IRandom rng {get;set;} 
         //private readonly RandomNumber _rng;
 
-        #region const
+        #region ctor
         public MapGenerator(int width, int height, int maxRooms, int roomMaxSize, int roomMinSize)
         {
             _width = width;

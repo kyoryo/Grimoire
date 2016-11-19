@@ -33,6 +33,16 @@ namespace Grimoire
 
         static void Main()
         {
+            //int radius = 100;
+            //var circle = new CirclePoints();
+            //var randomPoints = circle.GetPointInsideCircle(radius, 20);
+            //foreach (var point in randomPoints)
+            //{
+            //    Console.WriteLine("X = "+ point.X);
+            //    Console.WriteLine("Y = " + point.Y);
+
+            //}
+
             string fontFile = AppHelper.GetFontFile();
             int seed = (int)DateTime.UtcNow.Ticks;
             Random = new DotNetRandom(seed);
@@ -49,6 +59,7 @@ namespace Grimoire
             _inventoryConsole = new RLConsole(InventoryFrame.Width, InventoryFrame.Height);
 
             MapGenerator mapGenerator = new MapGenerator(MapFrame.Width, MapFrame.Height, 60, 13, 7);
+            //MapGenerator mapGenerator = new MapGenerator(100, 100, 60, 13, 7);
             DungeonMap = mapGenerator.CreateMap();
             DungeonMap.UpdatePlayerFieldOfView();
 

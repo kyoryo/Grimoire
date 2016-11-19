@@ -52,7 +52,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Generator\Calculate.cs" />
+    <Compile Include="Generator\MapCalculator.cs" />
+    <Compile Include="Generator\PointsCalculator.cs" />
     <Compile Include="Generator\Interface\IRandomNumber.cs" />
     <Compile Include="Generator\RandomNumber.cs" />
     <Compile Include="Generator\SeedGenerator.cs" />
@@ -60,6 +61,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Models\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
