@@ -2,6 +2,19 @@
 {
     public interface IRandomNumber
     {
-        int Next(int value);
+        int Next(int maxValue);
+
+        int Next(int minValue, int maxValue);
+
+        RandomState Save();
+
+        void Restore(RandomState state);
+    }
+
+    public class RandomState
+    {
+        public int[] Seed { get; set; }
+
+        public long NumberGenerated { get; set; }
     }
 }

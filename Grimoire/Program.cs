@@ -1,15 +1,15 @@
 ﻿using Grimoire.Core;
 using Grimoire.Core.Childs;
 using Grimoire.Enums;
-using Grimoire.Helper;
 using Grimoire.Logic.Generator;
-using Grimoire.Processor;
 using Grimoire.Processors;
 using Grimoire.UI;
 using Grimoire.UI.Frames;
 using RLNET;
 using RogueSharp.Random;
 using System;
+using Grimoire.Logic.Generator.Interface;
+using Grimoire.Logic.Helpers;
 
 namespace Grimoire
 {
@@ -26,29 +26,39 @@ namespace Grimoire
 
         public static Player Player { get; set; }
         public static DungeonMap DungeonMap { get; private set; }
-        public static IRandom Random { get; private set; }
+        public static IRandomNumber Random { get; private set; }
         public static Commands Commands { get; private set; }
         public static MessageLog MessageLog { get; private set; }
         public static Schedule Schedule { get; private set; }
 
         static void Main()
         {
-            //int radius = MapFrame.Height;
-            ////int ellipseWidth = MapFrame.Width/2;
-            ////int ellipseHeight = MapFrame.Height/2;
+            string fontFile = AppHelper.GetFontFile();
+            //int seed = (int)DateTime.UtcNow.Ticks;
+            int seed = 443041680;
+            Random = new SeedGenerator(seed);
+            //Random = new GaussianRandom(seed);
+#if DEBUG
+            Console.WriteLine(seed);
+#endif
+
+            #region Test
+            //int radius = MapFrame.Width;
+            //int ellipseWidth = MapFrame.Width;
+            //int ellipseHeight = MapFrame.Height;
             //var circle = new PointsCalculator();
-            //var randomPoints = circle.GetPointInsideCircle(radius, 20);
-            ////var randomPoints = circle.GetPointInsideCircle(ellipseWidth,ellipseHeight, 20);
+            ////var randomPoints = circle.GetPointInsideCircle(radius, 20, PointsType.CanBeNegative);
+            //var randomPoints = circle.GetPointInsideRectangle(ellipseWidth, ellipseHeight, 20);
             //foreach (var point in randomPoints)
             //{
             //    Console.WriteLine("X = " + point.X);
             //    Console.WriteLine("Y = " + point.Y);
 
             //}
+            #endregion
 
-            string fontFile = AppHelper.GetFontFile();
-            int seed = (int)DateTime.UtcNow.Ticks;
-            Random = new DotNetRandom(seed);
+
+
 
             string title = "Grimoire (developing)";
 
@@ -61,7 +71,7 @@ namespace Grimoire
             _statusConsole = new RLConsole(StatusFrame.Width, StatusFrame.Height);
             _inventoryConsole = new RLConsole(InventoryFrame.Width, InventoryFrame.Height);
 
-            MapGenerator mapGenerator = new MapGenerator(MapFrame.Width, MapFrame.Height, 20, 13, 7);
+            MapGenerator mapGenerator = new MapGenerator(MapFrame.Width, MapFrame.Height, 100, 13, 7);
             //MapGenerator mapGenerator = new MapGenerator(100, 100, 60, 13, 7);
             DungeonMap = mapGenerator.CreateMap();
             DungeonMap.UpdatePlayerFieldOfView();
@@ -73,7 +83,7 @@ namespace Grimoire
             _rootConsole.Render += OnRootConsoleRender;
 
 
-            _inventoryConsole.SetBackColor(0, 0, InventoryFrame.Width, InventoryFrame.Height, Colors.FloorBackground);
+            _inventoryConsole.SetBackColor(0, 0, InventoryFrame.Width, InventoryFrame.Height, Colors.DbSkin);
             _inventoryConsole.Print(1, 1, "for invent", Colors.TextHeading);
 
             _rootConsole.Run();

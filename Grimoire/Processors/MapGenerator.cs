@@ -1,14 +1,13 @@
-﻿using Grimoire.Core;
+﻿using System;
+using System.Linq;
+using Grimoire.Core;
 using Grimoire.Core.Childs;
 using Grimoire.Enemys;
+using Grimoire.Enums;
 using RogueSharp;
 using RogueSharp.DiceNotation;
-using System;
-using System.Linq;
-using Grimoire.Logic.Generator;
-using Grimoire.Processors;
 
-namespace Grimoire.Processor
+namespace Grimoire.Processors
 {
     public class MapGenerator
     {
@@ -22,6 +21,7 @@ namespace Grimoire.Processor
         //private readonly RandomNumber _rng;
 
         #region ctor
+
         public MapGenerator(int width, int height, int maxRooms, int roomMaxSize, int roomMinSize)
         {
             _width = width;
@@ -32,21 +32,23 @@ namespace Grimoire.Processor
             _map = new DungeonMap();
             //_rng = new RandomNumber();
         }
+
         #endregion
 
         public DungeonMap CreateMap()
         {
-            _map.Initialize(_width,_height);
+            _map.Initialize(_width, _height);
             var pointsCalculator = new PointsCalculator();
-            var points = pointsCalculator.GetPointInsideCircle(48,_maxRooms);
+            //var points = pointsCalculator.GetPointInsideCircle(48,_maxRooms,PointsType.AlwaysPositive);
+            var points = pointsCalculator.GetPointInsideRectangle(_width, _height, _maxRooms);
             foreach (var point in points)
             {
                 int roomWidth = Program.Random.Next(_roomMinSize, _roomMaxSize);
                 int roomHeight = Program.Random.Next(_roomMinSize, _roomMaxSize);
                 int roomXPosition = point.X;
                 int roomYPosition = point.Y;
-                
-                var newRoom = new Rectangle(roomXPosition,roomYPosition,roomWidth,roomHeight);
+
+                var newRoom = new Rectangle(roomXPosition, roomYPosition, roomWidth, roomHeight);
                 bool newRoomIntersects = _map.Rooms.Any(room => newRoom.Intersects(room));
 
                 if (!newRoomIntersects)
@@ -120,7 +122,17 @@ namespace Grimoire.Processor
             {
                 for (int y = room.Top + 1; y < room.Bottom; y++)
                 {
-                    _map.SetCellProperties(x, y, true, true, true);
+                    try
+                    {
+                        _map.SetCellProperties(x, y, true, true, true);
+
+                    }
+                    catch (Exception e)
+                    {
+                        //unhandled exception(need camera movements)
+                        Console.WriteLine(e.InnerException);
+                        continue;
+                    }
                 }
             }
         }
