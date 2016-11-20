@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Grimoire.Core;
 using Grimoire.Core.Childs;
@@ -39,17 +40,45 @@ namespace Grimoire.Processors
         {
             _map.Initialize(_width, _height);
             var pointsCalculator = new PointsCalculator();
-            //var points = pointsCalculator.GetPointInsideCircle(48,_maxRooms,PointsType.AlwaysPositive);
             var points = pointsCalculator.GetPointInsideRectangle(_width, _height, _maxRooms);
+            List<Rectangle> newRoomsList = new List<Rectangle>();
             foreach (var point in points)
             {
                 int roomWidth = Program.Random.Next(_roomMinSize, _roomMaxSize);
                 int roomHeight = Program.Random.Next(_roomMinSize, _roomMaxSize);
+                //  int roomXPosition = Program.Random.Next(0, _width - roomWidth - 1);
+                //  int roomYPosition = Program.Random.Next(0, _height - roomHeight - 1);
                 int roomXPosition = point.X;
                 int roomYPosition = point.Y;
 
                 var newRoom = new Rectangle(roomXPosition, roomYPosition, roomWidth, roomHeight);
                 bool newRoomIntersects = _map.Rooms.Any(room => newRoom.Intersects(room));
+
+                #region temporary
+                //bool newRoomIntersects = false;
+                //foreach (var room in _map.Rooms)
+                //{
+                //    if (newRoom.Intersects(room))//newroom intersecting with previous room
+                //    {
+                //        newRoomIntersects = true;
+                //        do
+                //        {
+                //            roomXPosition += 1;
+                //            newRoom = new Rectangle(roomXPosition,roomXPosition,roomWidth,roomHeight);
+                //            if (newRoom.Intersects(room))
+                //            {
+                //                roomYPosition += 1;
+                //                newRoom = new Rectangle(roomXPosition,roomYPosition,roomWidth,roomHeight);
+                //            }
+                //            if (!newRoom.Intersects(room))
+                //            {
+                //                newRoomIntersects = false;
+                //            }
+                //        } while (newRoomIntersects);
+                //        //break;
+                //    }
+                //}
+                #endregion
 
                 if (!newRoomIntersects)
                 {
@@ -57,23 +86,6 @@ namespace Grimoire.Processors
                 }
             }
 
-            //for (int r = _maxRooms; r > 0; r--)
-            //{
-            //    int roomWidth = Program.Random.Next(_roomMinSize, _roomMaxSize);
-            //    int roomHeight = Program.Random.Next(_roomMinSize, _roomMaxSize);
-            //    int roomXPosition = Program.Random.Next(0, _width - roomWidth - 1);
-            //    int roomYPosition = Program.Random.Next(0, _height - roomHeight - 1);
-
-            //    var newRoom = new Rectangle(roomXPosition, roomYPosition,
-            //      roomWidth, roomHeight);
-
-            //    bool newRoomIntersects = _map.Rooms.Any(room => newRoom.Intersects(room));
-
-            //    if (!newRoomIntersects)
-            //    {
-            //        _map.Rooms.Add(newRoom);
-            //    }
-            //}
             foreach (Rectangle room in _map.Rooms)
             {
                 CreateRoom(room);

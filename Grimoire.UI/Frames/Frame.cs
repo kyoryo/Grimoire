@@ -23,6 +23,12 @@ namespace Grimoire.UI.Frames
         public static int Width => 80; //default 80
         public static int Height => 48;
     }
+
+    public struct DungeonFrame
+    {
+        public static int Width => MapFrame.Width;
+        public static int Height => MapFrame.Height;
+    }
     /// <summary>
     /// Message Frame
     /// </summary>

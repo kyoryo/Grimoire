@@ -1,7 +1,6 @@
 ﻿using System;
-using Grimoire.Logic.Generator.Interface;
-using OpenTK;
-using RandomState = Grimoire.Logic.Generator.Interface.RandomState;
+using Grimoire.Logic.Interfaces;
+using RandomState = Grimoire.Logic.Interfaces.RandomState;
 
 namespace Grimoire.Logic.Random
 {

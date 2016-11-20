@@ -55,8 +55,8 @@
   <ItemGroup>
     <Compile Include="Generator\DungeonGenerator.cs" />
     <Compile Include="Generator\MapCalculator.cs" />
-    <Compile Include="Generator\Interface\IRandomNumber.cs" />
-    <Compile Include="Generator\RandomNumber.cs" />
+    <Compile Include="Interfaces\IRandomNumber.cs" />
+    <Compile Include="Random\NormalDistributionRandom.cs" />
     <Compile Include="Generator\SeedGenerator.cs" />
     <Compile Include="Helpers\AppHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

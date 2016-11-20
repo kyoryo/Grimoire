@@ -8,8 +8,9 @@ using Grimoire.UI.Frames;
 using RLNET;
 using RogueSharp.Random;
 using System;
-using Grimoire.Logic.Generator.Interface;
 using Grimoire.Logic.Helpers;
+using Grimoire.Logic.Interfaces;
+using Grimoire.Logic.Random;
 
 namespace Grimoire
 {
@@ -36,8 +37,7 @@ namespace Grimoire
             string fontFile = AppHelper.GetFontFile();
             //int seed = (int)DateTime.UtcNow.Ticks;
             int seed = 443041680;
-            Random = new SeedGenerator(seed);
-            //Random = new GaussianRandom(seed);
+            Random = new NormalDistributionRandom(seed);
 #if DEBUG
             Console.WriteLine(seed);
 #endif
@@ -57,9 +57,6 @@ namespace Grimoire
             //}
             #endregion
 
-
-
-
             string title = "Grimoire (developing)";
 
             MessageLog = new MessageLog();
@@ -71,7 +68,7 @@ namespace Grimoire
             _statusConsole = new RLConsole(StatusFrame.Width, StatusFrame.Height);
             _inventoryConsole = new RLConsole(InventoryFrame.Width, InventoryFrame.Height);
 
-            MapGenerator mapGenerator = new MapGenerator(MapFrame.Width, MapFrame.Height, 100, 13, 7);
+            MapGenerator mapGenerator = new MapGenerator(DungeonFrame.Width, DungeonFrame.Height, 5, 13, 7);
             //MapGenerator mapGenerator = new MapGenerator(100, 100, 60, 13, 7);
             DungeonMap = mapGenerator.CreateMap();
             DungeonMap.UpdatePlayerFieldOfView();

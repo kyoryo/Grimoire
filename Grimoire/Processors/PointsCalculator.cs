@@ -34,8 +34,6 @@ namespace Grimoire.Processors
                         int distance = Program.Random.Next(radius);
                         double angle = Program.Random.Next(360) / (2 * Math.PI); //angle in radians
 
-                        var tesX = (distance*Math.Cos(angle));
-                        var tesY = (distance*Math.Sin(angle));
                         int x = (int)(distance * Math.Cos(angle));
                         int y = (int)(distance * Math.Sin(angle));
                         if (x < 0)
@@ -57,7 +55,7 @@ namespace Grimoire.Processors
                         double angle = Program.Random.Next(360) / (2 * Math.PI); //angle in radians
 
                         int x = (int)(distance * Math.Cos(angle));
-                        int y = (int)(distance * Math.Sin(0-angle));
+                        int y = (int)(distance * Math.Sin(angle));
 
                         Point randomPoint = new Point(x, y);
                         points.Add(randomPoint);
@@ -99,11 +97,14 @@ namespace Grimoire.Processors
 
         public List<Point> GetPointInsideRectangle(int rectangleWidth, int rectangleHeight, int numberOfPoints)
         {
+            var centerX = rectangleWidth/2;
+            var centerY = rectangleHeight/2;
+
             List<Point> points = new List<Point>();
             for (int pointIndex = 0; pointIndex < numberOfPoints; pointIndex++)
             {
-                int x = Program.Random.Next(0, rectangleWidth - 5);
-                int y = Program.Random.Next(0, rectangleHeight - 5);
+                int x = Program.Random.Next(0, rectangleWidth - 0);
+                int y = Program.Random.Next(0, rectangleHeight - 0);
 
                 Point randomPoint = new Point(x, y);
                 points.Add(randomPoint);

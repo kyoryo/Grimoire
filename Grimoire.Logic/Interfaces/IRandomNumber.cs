@@ -1,4 +1,4 @@
-﻿namespace Grimoire.Logic.Generator.Interface
+﻿namespace Grimoire.Logic.Interfaces
 {
     public interface IRandomNumber
     {
