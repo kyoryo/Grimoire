@@ -7,7 +7,7 @@ using Grimoire.Logic.Models;
 
 namespace Grimoire.Logic.Triangle
 {
-    public class TriangleCalculator : ICloneable
+    public class Triangle : ICloneable
     {
         public Point a, b, c;
 
@@ -66,7 +66,7 @@ namespace Grimoire.Logic.Triangle
             return false;
         }
 
-        public TriangleCalculator(Point a, Point b, Point c)
+        public Triangle(Point a, Point b, Point c)
         {
             if (a.Equals(b)||a.Equals(c)||b.Equals(c))
                 throw new Exception("More than 2 points of triangle are equals");
@@ -75,18 +75,18 @@ namespace Grimoire.Logic.Triangle
             if (!FindAssign(a, b, c, low) && !FindAssign(b, a, c, low))
                 FindAssign(c, a, b, low);
         }
-        public TriangleCalculator() { }
+        public Triangle() { }
 
         public override bool Equals(object obj)
         {
-            TriangleCalculator otherTriangle = obj as TriangleCalculator;
+            Triangle otherTriangle = obj as Triangle;
             return otherTriangle.a.Equals(a) && otherTriangle.b.Equals(b) && otherTriangle.c.Equals(c);
         }
 
         #region ICloneable Implementation
         public object Clone()
         {
-            return new TriangleCalculator((Point)a.Clone(), (Point)b.Clone(), (Point)c.Clone());
+            return new Triangle((Point)a.Clone(), (Point)b.Clone(), (Point)c.Clone());
         }
         #endregion
     }
