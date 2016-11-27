@@ -68,7 +68,6 @@
     <Compile Include="Interfaces\IAmBehavable.cs" />
     <Compile Include="Interfaces\IAmDrawable.cs" />
     <Compile Include="Interfaces\IAmScheduleable.cs" />
-    <Compile Include="Models\PropTestModel.cs" />
     <Compile Include="Processors\Commands.cs" />
     <Compile Include="Processors\MapGenerator.cs" />
     <Compile Include="Processors\MessageLog.cs" />

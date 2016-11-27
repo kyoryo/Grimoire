@@ -56,11 +56,14 @@
     <Compile Include="Generator\DungeonGenerator.cs" />
     <Compile Include="Generator\MapCalculator.cs" />
     <Compile Include="Interfaces\IRandomNumber.cs" />
+    <Compile Include="Models\Point.cs" />
     <Compile Include="Random\NormalDistributionRandom.cs" />
     <Compile Include="Generator\SeedGenerator.cs" />
     <Compile Include="Helpers\AppHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Helpers\Utilities.cs" />
+    <Compile Include="Triangle\DelaunayTriangulationCalculator.cs" />
+    <Compile Include="Triangle\TriangleCalculator.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

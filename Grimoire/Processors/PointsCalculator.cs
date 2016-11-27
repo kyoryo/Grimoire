@@ -6,7 +6,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Grimoire.Enums;
 using Grimoire.Logic.Helpers;
-using RogueSharp;
+using Grimoire.Logic.Models;
 
 namespace Grimoire.Processors
 {
