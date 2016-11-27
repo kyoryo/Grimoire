@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Grimoire.Program">
+    <Position X="6" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAgAAQAAAAAAEAAAAAAAAAEQIBAEgQgAABwAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Grimoire.Actions.BaseActions" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="6" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>Actions\BaseActions.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Grimoire.Core.Actor" Collapsed="true">
+    <Position X="2" Y="2" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Properties" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>ABAQCCAgAAEAAgAAAAgAAAQBAIAAAAACBAAggoAAaVA=</HashCode>
+      <FileName>Core\Actor.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Grimoire.Core.DungeonMap" Collapsed="true">
+    <Position X="9.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAElAAEAAAAiAIAAAAAAACAAgAAAAAAIgAAAAAAAA=</HashCode>
+      <FileName>Core\DungeonMap.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Grimoire.Core.Enemy" Collapsed="true">
+    <Position X="3" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAACABAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Core\Enemy.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Grimoire.Core.Childs.Player">
+    <Position X="0.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Core\Childs\Player.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Grimoire.Enemys.Goblin" Collapsed="true">
+    <Position X="3" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>Enemys\Goblin.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Grimoire.Processors.Commands" Collapsed="true">
+    <Position X="7.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BQAAAAQAAAAAIAAAAAAAAAAAAIAAQAAAAAAAAQAAAAA=</HashCode>
+      <FileName>Processors\Commands.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Grimoire.Processors.MapGenerator">
+    <Position X="7.75" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAACAAAAAAAAACgAAABQQACAgAEAAAAAAEAA=</HashCode>
+      <FileName>Processors\MapGenerator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Grimoire.Processors.MessageLog" Collapsed="true">
+    <Position X="9.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAgAAAAABAAAAAAAAAgAAAAAAAAAAAAA=</HashCode>
+      <FileName>Processors\MessageLog.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Grimoire.Processors.PointsCalculator" Collapsed="true">
+    <Position X="9.5" Y="1.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AACAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAA=</HashCode>
+      <FileName>Processors\PointsCalculator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Grimoire.Processors.Schedule" Collapsed="true">
+    <Position X="9.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQIAAAAAAAAgAABAAAAABAAAgAAAAAAAAAAAAABAAAA=</HashCode>
+      <FileName>Processors\Schedule.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="Grimoire.Interfaces.IAmAnActor" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAQCCAAAAAAAAAAAAAAAAQBAIAAAAACAAAgAgAAAAA=</HashCode>
+      <FileName>Interfaces\IAmAnActor.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Grimoire.Interfaces.IAmBehavable" Collapsed="true">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>Interfaces\IAmBehavable.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Grimoire.Interfaces.IAmDrawable" Collapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAgAAAaAA=</HashCode>
+      <FileName>Interfaces\IAmDrawable.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Grimoire.Interfaces.IAmScheduleable" Collapsed="true">
+    <Position X="0.5" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQA=</HashCode>
+      <FileName>Interfaces\IAmScheduleable.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="Grimoire.Enums.Directions" Collapsed="true">
+    <Position X="9.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAACACAAAEIAAI=</HashCode>
+      <FileName>Enums\Directions.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Grimoire.Enums.PointsType" Collapsed="true">
+    <Position X="9.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>Enums\PointsType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

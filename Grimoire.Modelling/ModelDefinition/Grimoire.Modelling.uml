@@ -254,6 +254,14 @@
         </nodes>
       </activity>
     </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="14fd6422-14cd-4ac4-87df-17c3aa00b9cc"
+        name="Class1"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
   </packagedElements>
   <primitiveType
     Id="220a3521-e091-4221-bae9-3ef9018e845c"
