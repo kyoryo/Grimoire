@@ -42,15 +42,98 @@ namespace Grimoire.Logic.Triangle
             Pair pair;
             List<Point> leftOverPointsTemp = new List<Point>(leftOverPoints);
             List<Point> leftOverPointsTemp1 = new List<Point>(leftOverPoints);
-            foreach (Point[] randomPoint in GetRandomPoints())
+            foreach (Point[] point in GetRandomPoints())
             {
-                if (!HasPointsInside(randomPoint[0],randomPoint[1],randomPoint[2]))
+                if (!HasPointsInside(point[0], point[1], point[2]))
                 {
-                   ///TODO calc
+                    rootTriangle = new Triangle(point[0], point[1], point[2]);
+                    res.Add(rootTriangle);
+                    leftOverPointsTemp.Remove(point[0]);
+                    leftOverPointsTemp.Remove(point[1]);
+                    leftOverPointsTemp.Remove(point[2]);
+
+                    //Adds to the list of points used, the points in p
+                    pointsUsed.Add(point[0]);
+                    pointsUsed.Add(point[1]);
+                    pointsUsed.Add(point[2]);
+
+                    pair = Triangulate(leftOverPointsTemp, res);
+                    if (pair.ok)
+                    {
+                        return pair.res;
+                    }
+                    else
+                    {
+                        //Removes from the last parameter position
+                        res.RemoveAt(0);
+                        pointsUsed.RemoveAt(pointsUsed.Count - 1);
+                        pointsUsed.RemoveAt(pointsUsed.Count - 1);
+                        pointsUsed.RemoveAt(pointsUsed.Count - 1);
+
+                        leftOverPointsTemp = leftOverPointsTemp1;
+                    }
                 }
             }
             return null;
 
+        }
+
+        private Pair Triangulate(List<Point> leftOverPoints, List<Triangle> res)
+        {
+            List<Triangle> temp = null;
+            Point newPoint = new Point();
+            while (leftOverPoints.Count>0)
+            {
+                for (int i = 0; i < leftOverPoints.Count; i++)
+                {
+                    temp = GetNextTriangle(leftOverPoints[i]);
+                    if (temp.Count>0)
+                    {
+                        res.AddRange(temp);
+                        newPoint = leftOverPoints[i];
+                        leftOverPoints.RemoveAt(i);
+                        pointsUsed.Add(newPoint);
+                        Pair p = Triangulate(leftOverPoints, res);
+                        if (p.ok)
+                        {
+                            return p;
+                        }
+                        else
+                        {
+                            res.RemoveRange(res.Count-temp.Count,temp.Count);
+                            leftOverPoints.Insert(i,newPoint);
+                            pointsUsed.Remove(newPoint);
+                        }
+                    }
+                }
+                return new Pair(res,false);
+                
+            }
+            return new Pair(res,true);
+        }
+
+        private List<Triangle> GetNextTriangle(Point newPoint)
+        {
+            List<Triangle> result = new List<Triangle>();
+            foreach (Point[] point in GetPairRandomPoints())
+            {
+                if (!point[0].Equals(newPoint) && !point[1].Equals(newPoint))
+                {
+                    if (!HasPointsInside(point[0], point[1], newPoint))
+                    {
+                        result.Add(new Triangle(point[0], point[1], newPoint));
+                    }
+                }
+                
+            }
+            return result;
+        }
+        //This function is testing all pairs of possible points
+        private IEnumerable<Point[]> GetPairRandomPoints()
+        {
+            for (int i = 0; i < pointsUsed.Count; i++)
+                for (int j = i + 1; j < pointsUsed.Count; j++)
+                    yield return new Point[2] { pointsUsed[i], pointsUsed[j] };
         }
 
         private bool HasPointsInside(Point point, Point point1, Point point2)
@@ -126,8 +209,8 @@ namespace Grimoire.Logic.Triangle
 
         private Rect GetMatrixEquation(Point p1, Point p2, Rect r)
         {
-            var halfX = (int) (p1.X + p2.X)/2;
-            var halfY = (int) (p1.Y + p2.Y)/2;
+            var halfX = (int) (p1.X + p2.X)/2; ///TODO FLOAT
+            var halfY = (int) (p1.Y + p2.Y)/2; ///TODO FLOAT
             Point halfPoint = new Point(halfX,halfY);
             Rational m = new Rational(r.M._denominator, r.M._numerator * -1);
             Rect resutlRect = new Rect(m, -1*m.Eval()*halfPoint.X + halfPoint.Y);
@@ -138,7 +221,7 @@ namespace Grimoire.Logic.Triangle
         {
             float x = (r2.N - r1.N)/(float) (r1.SlopeEval() - r2.SlopeEval());
             float y = r1.Eval(x);
-            return new Point((int)x,(int)y);
+            return new Point((int)x,(int)y); ///TODO FLOAT
         }
 
         private float GetDistance(Point point, Point point1)
