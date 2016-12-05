@@ -174,6 +174,15 @@
         name="Menentukan Angka Random"
         isAbstract="false"
         isLeaf="false">
+        <additions>
+          <include
+            Id="6b7fcdf0-e2d7-4db1-aa96-bfb0c1079c9d">
+            <useCaseMoniker
+              Id="40af5670-ee26-4127-945b-ed3629669bee"
+              LastKnownName="Membuat Peta Berdasarkan MST"
+              LastKnownLocation="Grimoire.Modelling.uml" />
+          </include>
+        </additions>
         <subjects>
           <subsystemMoniker
             Id="a31a6eee-4899-402b-b182-651940b19be0"
@@ -261,6 +270,241 @@
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="a44756fd-5127-400b-a199-71dba9b97e70"
+        name="Player"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="6bdff128-3002-461f-b01b-efd186e0b539"
+            isDerived="false"
+            sourceEndRoleName="Player"
+            targetEndRoleName="Angka Random Terdistribusi Secara Normal"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="7309bae2-1a39-43c4-8143-fb0fcbdbbae8"
+              LastKnownName="Angka Random Terdistribusi Secara Normal"
+              LastKnownLocation="Grimoire.Modelling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="1b3f1348-ceb6-48ca-89e3-d24692bf0e1f"
+                  name="Player"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="85787493-0892-473f-b2fd-28303028c49b"
+                  name="Angka Random Terdistribusi Secara Normal"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="64a6a522-5d3d-486b-88ff-2d496d29bb58"
+            isDerived="false"
+            sourceEndRoleName="Player"
+            targetEndRoleName="Menentukan Kelakuan Musuh"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="7bf493da-80b0-431c-ab22-68d6e7d1e53d"
+              LastKnownName="Menentukan Kelakuan Musuh"
+              LastKnownLocation="Grimoire.Modelling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="01a70125-2b97-47ac-b3a4-56347878026b"
+                  name="Player"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="7bde5486-96de-4d8d-a9cf-f4114839f815"
+                  name="Menentukan Kelakuan Musuh"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="14e69089-08bc-4786-bf37-bb396af13d23"
+        name="Actor1"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="ba12e102-d5e9-430a-b93f-d0108042fbf0"
+        name="Actor2"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="847e5401-d068-4f6c-a2f7-d96bf5d43842"
+        name="Pembuatan Peta"
+        isAbstract="false"
+        isLeaf="false">
+        <subjects>
+          <subsystemMoniker
+            Id="0487d5ed-a1b5-4fc3-8e31-0a647c25032c"
+            LastKnownName="System"
+            LastKnownLocation="Grimoire.Modelling.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="7309bae2-1a39-43c4-8143-fb0fcbdbbae8"
+        name="Angka Random Terdistribusi Secara Normal"
+        isAbstract="false"
+        isLeaf="false">
+        <additions>
+          <include
+            Id="45e9fe3b-1473-4c53-b34e-64d41b91c1c1">
+            <useCaseMoniker
+              Id="847e5401-d068-4f6c-a2f7-d96bf5d43842"
+              LastKnownName="Pembuatan Peta"
+              LastKnownLocation="Grimoire.Modelling.uml" />
+          </include>
+          <include
+            Id="7dcca6ae-ce22-4a5e-8a63-9950cf2ac43c">
+            <useCaseMoniker
+              Id="9d6a9ff6-9ac9-44ee-85e7-750a552d950f"
+              LastKnownName="Distribusi konten"
+              LastKnownLocation="Grimoire.Modelling.uml" />
+          </include>
+        </additions>
+        <subjects>
+          <subsystemMoniker
+            Id="0487d5ed-a1b5-4fc3-8e31-0a647c25032c"
+            LastKnownName="System"
+            LastKnownLocation="Grimoire.Modelling.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="7bf493da-80b0-431c-ab22-68d6e7d1e53d"
+        name="Menentukan Kelakuan Musuh"
+        isAbstract="false"
+        isLeaf="false">
+        <subjects>
+          <subsystemMoniker
+            Id="0487d5ed-a1b5-4fc3-8e31-0a647c25032c"
+            LastKnownName="System"
+            LastKnownLocation="Grimoire.Modelling.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="472014f8-0d87-4989-9946-d6a207ef89b5"
+        name="Actor3"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <subsystem
+        Id="b83ca06e-a4c2-45cd-8359-9b233dc49e51"
+        name="System1"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="91ec1b06-979d-4799-89c2-6ce588c1c05b"
+        name="Menentukan Angka Random1"
+        isAbstract="false"
+        isLeaf="false">
+        <additions>
+          <include
+            Id="a2eba292-bd18-4d39-9495-a551e9bb06d8">
+            <useCaseMoniker
+              Id="ad55bbc3-d410-4811-8b53-6a8cabb79905"
+              LastKnownName="Membuat Peta Berdasarkan MST1"
+              LastKnownLocation="Grimoire.Modelling.uml" />
+          </include>
+        </additions>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="42943454-ffab-4bdf-b96a-e79537591338"
+        name="Menentukan Behaviour Musuh1"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="ad55bbc3-d410-4811-8b53-6a8cabb79905"
+        name="Membuat Peta Berdasarkan MST1"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <subsystem
+        Id="0487d5ed-a1b5-4fc3-8e31-0a647c25032c"
+        name="System"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="9d6a9ff6-9ac9-44ee-85e7-750a552d950f"
+        name="Distribusi konten"
+        isAbstract="false"
+        isLeaf="false">
+        <subjects>
+          <subsystemMoniker
+            Id="0487d5ed-a1b5-4fc3-8e31-0a647c25032c"
+            LastKnownName="System"
+            LastKnownLocation="Grimoire.Modelling.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="2eeb043d-d390-4b71-b4c2-a4b674aebfa2"
+        name="Actor4"
+        isAbstract="false"
+        isLeaf="false" />
     </packageHasNamedElement>
   </packagedElements>
   <primitiveType

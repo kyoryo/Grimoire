@@ -43,6 +43,13 @@
       <SubType>Content</SubType>
       <DependentUpon>Use Case Diagrams\UC1.usecasediagram</DependentUpon>
     </Content>
+    <Content Include="Use Case Diagrams\WholeSystemUsecase.usecasediagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="Use Case Diagrams\WholeSystemUsecase.usecasediagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>Use Case Diagrams\WholeSystemUsecase.usecasediagram</DependentUpon>
+    </Content>
     <Folder Include="ModelDefinition\" />
     <Content Include="ModelDefinition\Grimoire.Modelling.uml">
       <SubType>Content</SubType>

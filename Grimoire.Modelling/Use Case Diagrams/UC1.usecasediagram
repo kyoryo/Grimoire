@@ -1,19 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<useCaseModelRoot xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm10="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="a0901aff-6588-4a0e-92ed-978d9b957858" name="UMLUseCaseDiagram1" linkedPackageId="ee615fdd-4cee-4e6e-9b02-e6ceaf733c45" xmlns="http://schemas.microsoft.com/dsltools/UseCaseModel">
-  <profileInstances>
-    <packageHasProfileInstances Id="cfa96bb3-dcc8-4a46-85e6-7555445bbee5">
-      <profileInstance Id="884aa055-311a-4a27-bbf7-e1579baf2a86" name="StandardProfileL2">
-        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
-      </profileInstance>
-      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
-    </packageHasProfileInstances>
-    <packageHasProfileInstances Id="609367f1-1f1b-4c9f-98d6-c775611e3a10">
-      <profileInstance Id="25aebb93-f19b-402b-940e-ca3ad92633dc" name="StandardProfileL3">
-        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
-      </profileInstance>
-      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
-    </packageHasProfileInstances>
-  </profileInstances>
+<useCaseModelRoot xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm10="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm11="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner" dslVersion="1.0.0.0" Id="a0901aff-6588-4a0e-92ed-978d9b957858" name="UMLUseCaseDiagram1" linkedPackageId="ee615fdd-4cee-4e6e-9b02-e6ceaf733c45" xmlns="http://schemas.microsoft.com/dsltools/UseCaseModel">
   <packagedElements>
     <useCaseModelRootHasTypes>
       <actor Id="4e1752a5-33bf-4238-8be3-6c18a7db768c" name="Player" isAbstract="false" isLeaf="false">
@@ -78,6 +64,12 @@
     <useCaseModelRootHasTypes>
       <useCase Id="842f456b-d248-48de-b343-2f91cd703970" name="Menentukan Angka Random" isAbstract="false" isLeaf="false">
         <elementDefinition Id="15ff38b7-289c-4b0d-b2af-ed46097b2450" />
+        <additions>
+          <include Id="e431ae5f-2d54-4d62-b555-8853fad1edfa">
+            <useCaseMoniker Id="57aca5ae-ef49-4ee9-8638-c643229db279" LastKnownName="Membuat Peta Berdasarkan MST" />
+            <elementDefinition Id="6b7fcdf0-e2d7-4db1-aa96-bfb0c1079c9d" />
+          </include>
+        </additions>
         <subjects>
           <subsystemMoniker Id="5515eb22-4d0f-4b91-8057-1918a49d5da3" LastKnownName="System" />
         </subjects>
@@ -102,5 +94,19 @@
   </packagedElements>
   <package Id="ee615fdd-4cee-4e6e-9b02-e6ceaf733c45" name="Grimoire.Modelling">
     <elementDefinition Id="91c687f8-2f3c-4054-8040-13c71050b27f" />
+    <profileInstances>
+      <packageHasProfileInstances Id="cfa96bb3-dcc8-4a46-85e6-7555445bbee5">
+        <profileInstance Id="884aa055-311a-4a27-bbf7-e1579baf2a86" name="StandardProfileL2">
+          <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+        </profileInstance>
+        <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="609367f1-1f1b-4c9f-98d6-c775611e3a10">
+        <profileInstance Id="25aebb93-f19b-402b-940e-ca3ad92633dc" name="StandardProfileL3">
+          <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+        </profileInstance>
+        <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+    </profileInstances>
   </package>
 </useCaseModelRoot>

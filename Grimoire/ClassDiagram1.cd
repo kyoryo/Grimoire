@@ -116,7 +116,7 @@
       <FileName>Interfaces\IAmDrawable.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="Grimoire.Interfaces.IAmScheduleable" Collapsed="true">
+  <Interface Name="Grimoire.Interfaces.IAmScheduleable">
     <Position X="0.5" Y="1.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQA=</HashCode>

@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<useCaseModelRoot xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm10="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm11="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner" dslVersion="1.0.0.0" Id="78db364f-460f-4542-b7ac-c51418a712a3" name="WholeSystemUsecase" linkedPackageId="9af89fea-d92d-44d3-9ca4-9029db24278d" xmlns="http://schemas.microsoft.com/dsltools/UseCaseModel">
+  <profileInstances>
+    <packageHasProfileInstances Id="bd96b5f9-17af-446f-85b3-a791d7c95110">
+      <profileInstance Id="ebc3a48a-28cc-4f6d-b466-df10b4a04a1e" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="aa24e806-2813-4bd5-a70c-7c071c67a20c">
+      <profileInstance Id="92affa11-3fb4-4501-963f-1715a1ad7916" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <useCaseModelRootHasTypes>
+      <actor Id="540c528d-f58c-4852-bbd5-16e578021d19" name="Player" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="a44756fd-5127-400b-a199-71dba9b97e70" />
+        <targetEnds>
+          <association Id="644c488f-45f7-40bc-ab73-21e33ce7e756" isDerived="false" sourceEndRoleName="Player" targetEndRoleName="Angka Random Terdistribusi Secara Normal" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="894a57d1-0965-464e-a50e-cb0b3a8f3f78" LastKnownName="Angka Random Terdistribusi Secara Normal" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="4cfba41a-c1da-4675-bb2b-3dac20911bc3" name="Player" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="1b3f1348-ceb6-48ca-89e3-d24692bf0e1f" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="8ac7ff18-f28b-49be-9678-9501b0040e55" name="Angka Random Terdistribusi Secara Normal" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="85787493-0892-473f-b2fd-28303028c49b" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="6bdff128-3002-461f-b01b-efd186e0b539" />
+          </association>
+          <association Id="a0216663-3922-4123-9c4d-69ea86b4f2b3" isDerived="false" sourceEndRoleName="Player" targetEndRoleName="Menentukan Kelakuan Musuh" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="d414c774-e403-4664-b71e-accebac57d5d" LastKnownName="Menentukan Kelakuan Musuh" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="b16bb93a-dc0b-4f23-be69-0a2868ffbb4e" name="Player" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="01a70125-2b97-47ac-b3a4-56347878026b" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="db88f439-9c23-4869-8b12-0ad498911281" name="Menentukan Kelakuan Musuh" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="7bde5486-96de-4d8d-a9cf-f4114839f815" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="64a6a522-5d3d-486b-88ff-2d496d29bb58" />
+          </association>
+        </targetEnds>
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="ce888409-d97d-4ead-a130-ef335c6e454c" name="Pembuatan Peta" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="847e5401-d068-4f6c-a2f7-d96bf5d43842" />
+        <subjects>
+          <subsystemMoniker Id="fa74efcd-e64f-4a53-a7d0-a36f82cc4ffc" LastKnownName="System" />
+        </subjects>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="894a57d1-0965-464e-a50e-cb0b3a8f3f78" name="Angka Random Terdistribusi Secara Normal" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="7309bae2-1a39-43c4-8143-fb0fcbdbbae8" />
+        <additions>
+          <include Id="39201517-3a35-41ec-ba4f-23f35c1595cc">
+            <useCaseMoniker Id="ce888409-d97d-4ead-a130-ef335c6e454c" LastKnownName="Pembuatan Peta" />
+            <elementDefinition Id="45e9fe3b-1473-4c53-b34e-64d41b91c1c1" />
+          </include>
+          <include Id="3adfb702-0826-4454-818b-1699e5a63153">
+            <useCaseMoniker Id="2087807c-0f15-45da-a378-0f31d7b1675a" LastKnownName="Distribusi konten" />
+            <elementDefinition Id="7dcca6ae-ce22-4a5e-8a63-9950cf2ac43c" />
+          </include>
+        </additions>
+        <subjects>
+          <subsystemMoniker Id="fa74efcd-e64f-4a53-a7d0-a36f82cc4ffc" LastKnownName="System" />
+        </subjects>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="d414c774-e403-4664-b71e-accebac57d5d" name="Menentukan Kelakuan Musuh" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="7bf493da-80b0-431c-ab22-68d6e7d1e53d" />
+        <subjects>
+          <subsystemMoniker Id="fa74efcd-e64f-4a53-a7d0-a36f82cc4ffc" LastKnownName="System" />
+        </subjects>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <subsystem Id="fa74efcd-e64f-4a53-a7d0-a36f82cc4ffc" name="System" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="0487d5ed-a1b5-4fc3-8e31-0a647c25032c" />
+      </subsystem>
+    </useCaseModelRootHasTypes>
+    <packageHasNamedElement>
+      <useCase Id="2087807c-0f15-45da-a378-0f31d7b1675a" name="Distribusi konten" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="9d6a9ff6-9ac9-44ee-85e7-750a552d950f" />
+        <subjects>
+          <subsystemMoniker Id="fa74efcd-e64f-4a53-a7d0-a36f82cc4ffc" LastKnownName="System" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+  </packagedElements>
+  <package Id="9af89fea-d92d-44d3-9ca4-9029db24278d" name="Grimoire.Modelling">
+    <elementDefinition Id="91c687f8-2f3c-4054-8040-13c71050b27f" />
+  </package>
+</useCaseModelRoot>
