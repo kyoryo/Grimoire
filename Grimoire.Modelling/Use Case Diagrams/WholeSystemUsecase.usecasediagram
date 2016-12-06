@@ -19,22 +19,6 @@
       <actor Id="540c528d-f58c-4852-bbd5-16e578021d19" name="Player" isAbstract="false" isLeaf="false">
         <elementDefinition Id="a44756fd-5127-400b-a199-71dba9b97e70" />
         <targetEnds>
-          <association Id="644c488f-45f7-40bc-ab73-21e33ce7e756" isDerived="false" sourceEndRoleName="Player" targetEndRoleName="Angka Random Terdistribusi Secara Normal" isLeaf="false" isAbstract="false">
-            <useCaseMoniker Id="894a57d1-0965-464e-a50e-cb0b3a8f3f78" LastKnownName="Angka Random Terdistribusi Secara Normal" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd Id="4cfba41a-c1da-4675-bb2b-3dac20911bc3" name="Player" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
-                  <elementDefinition Id="1b3f1348-ceb6-48ca-89e3-d24692bf0e1f" />
-                </memberEnd>
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd Id="8ac7ff18-f28b-49be-9678-9501b0040e55" name="Angka Random Terdistribusi Secara Normal" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
-                  <elementDefinition Id="85787493-0892-473f-b2fd-28303028c49b" />
-                </memberEnd>
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-            <elementDefinition Id="6bdff128-3002-461f-b01b-efd186e0b539" />
-          </association>
           <association Id="a0216663-3922-4123-9c4d-69ea86b4f2b3" isDerived="false" sourceEndRoleName="Player" targetEndRoleName="Menentukan Kelakuan Musuh" isLeaf="false" isAbstract="false">
             <useCaseMoniker Id="d414c774-e403-4664-b71e-accebac57d5d" LastKnownName="Menentukan Kelakuan Musuh" />
             <relationshipOwnedElementsInternal>
@@ -51,12 +35,50 @@
             </relationshipOwnedElementsInternal>
             <elementDefinition Id="64a6a522-5d3d-486b-88ff-2d496d29bb58" />
           </association>
+          <association Id="b63b26fd-5d27-4d72-8767-b6bce3cb79e2" isDerived="false" sourceEndRoleName="Player" targetEndRoleName="Pembuatan Peta" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="ce888409-d97d-4ead-a130-ef335c6e454c" LastKnownName="Pembuatan Peta" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="c7c53361-1a3f-46d6-8f8d-dc5b67312a41" name="Player" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="f7a62aed-1fa0-47ba-aaed-75608e060c06" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="73afb69a-e5e3-452a-b5fe-904a27c0c7a7" name="Pembuatan Peta" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="afc7e80c-ac75-4e80-93ed-34f3bd20b7d9" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="6a3e376b-6e41-41e0-a31f-e80156e6b9e8" />
+          </association>
+          <association Id="9e241a1f-41c8-40ab-90d6-6e00a8a0f5ba" isDerived="false" sourceEndRoleName="Player" targetEndRoleName="Distribusi konten" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="2087807c-0f15-45da-a378-0f31d7b1675a" LastKnownName="Distribusi konten" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="886d2365-8572-4e0b-ae1c-0a8a09d18b5f" name="Player" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="b91013b2-e9c6-4686-9565-23ec33c49eb9" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="9ce0e63a-313d-434f-980a-7a39181fc4ea" name="Distribusi konten" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="8a527bee-9a40-4ac9-ab15-831c0d70b6b8" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="a4b193c3-aac8-4b00-aaf8-99d90eb5b53a" />
+          </association>
         </targetEnds>
       </actor>
     </useCaseModelRootHasTypes>
     <useCaseModelRootHasTypes>
       <useCase Id="ce888409-d97d-4ead-a130-ef335c6e454c" name="Pembuatan Peta" isAbstract="false" isLeaf="false">
         <elementDefinition Id="847e5401-d068-4f6c-a2f7-d96bf5d43842" />
+        <additions>
+          <include Id="9154e134-1bae-4a70-a799-8854f6edb4bf">
+            <useCaseMoniker Id="2087807c-0f15-45da-a378-0f31d7b1675a" LastKnownName="Distribusi konten" />
+            <elementDefinition Id="fcc1bcb5-4042-4225-a9e1-371acfa7e6fa" />
+          </include>
+        </additions>
         <subjects>
           <subsystemMoniker Id="fa74efcd-e64f-4a53-a7d0-a36f82cc4ffc" LastKnownName="System" />
         </subjects>
@@ -66,13 +88,13 @@
       <useCase Id="894a57d1-0965-464e-a50e-cb0b3a8f3f78" name="Angka Random Terdistribusi Secara Normal" isAbstract="false" isLeaf="false">
         <elementDefinition Id="7309bae2-1a39-43c4-8143-fb0fcbdbbae8" />
         <additions>
-          <include Id="39201517-3a35-41ec-ba4f-23f35c1595cc">
+          <include Id="16a847b9-267e-4ec5-b0d6-b6269cff5b21">
             <useCaseMoniker Id="ce888409-d97d-4ead-a130-ef335c6e454c" LastKnownName="Pembuatan Peta" />
-            <elementDefinition Id="45e9fe3b-1473-4c53-b34e-64d41b91c1c1" />
+            <elementDefinition Id="90bfaf1b-7752-45a2-a3e7-70fab921c34d" />
           </include>
-          <include Id="3adfb702-0826-4454-818b-1699e5a63153">
+          <include Id="d85e47d2-e1b9-40e6-bc25-c2df96612dcc">
             <useCaseMoniker Id="2087807c-0f15-45da-a378-0f31d7b1675a" LastKnownName="Distribusi konten" />
-            <elementDefinition Id="7dcca6ae-ce22-4a5e-8a63-9950cf2ac43c" />
+            <elementDefinition Id="f3e7c353-8025-45f6-bca9-486d1727dfb0" />
           </include>
         </additions>
         <subjects>
