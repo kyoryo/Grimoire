@@ -34,13 +34,16 @@ namespace Grimoire
 
         static void Main()
         {
+            Console.WriteLine("Now Initializing"); 
             string fontFile = AppHelper.GetFontFile();
+            int seed = 2;
             //int seed = (int)DateTime.UtcNow.Ticks;
-            int seed = 443041680;
+            //int seed = 443041680;
             Random = new NormalDistributionRandom(seed);
 #if DEBUG
-            Console.WriteLine(seed);
+            Console.WriteLine($"Initial Seed: {seed}");
 #endif
+
 
             #region Test
             //int radius = MapFrame.Width;
@@ -63,16 +66,38 @@ namespace Grimoire
             MessageLog.Add($"Level 1 with seed:'{seed}'");
 
             _rootConsole = new RLRootConsole(fontFile, ScreenFrame.Width, ScreenFrame.Height, _charWidth, _charHeight, 1f, title);
+
+            #region DEBUG console log
+#if DEBUG
+            Console.WriteLine($"Screen width : {ScreenFrame.Width}");
+            Console.WriteLine($"Screen Height : {ScreenFrame.Height}");
+#endif
+            #endregion
+
             _mapConsole = new RLConsole(MapFrame.Width, MapFrame.Height);
+            #region DEBUG console log
+#if DEBUG
+            Console.WriteLine($"Map width : {MapFrame.Width}");
+            Console.WriteLine($"Map Height : {MapFrame.Height}");
+#endif
+            #endregion
+
             _messageConsole = new RLConsole(MessageFrame.Width, MessageFrame.Height);
             _statusConsole = new RLConsole(StatusFrame.Width, StatusFrame.Height);
             _inventoryConsole = new RLConsole(InventoryFrame.Width, InventoryFrame.Height);
 
-            MapGenerator mapGenerator = new MapGenerator(DungeonFrame.Width, DungeonFrame.Height, 5, 13, 7);
+
+            #region DEBUG console log
+#if DEBUG
+            Console.WriteLine($"dungeon width : {DungeonFrame.Width}");
+            Console.WriteLine($"dungeon Height : {DungeonFrame.Height}");
+#endif
+            #endregion
+            MapGenerator mapGenerator = new MapGenerator(DungeonFrame.Width, DungeonFrame.Height, 20, 13, 7);
+            
             //MapGenerator mapGenerator = new MapGenerator(100, 100, 60, 13, 7);
             DungeonMap = mapGenerator.CreateMap();
             DungeonMap.UpdatePlayerFieldOfView();
-
 
             Commands = new Commands();
 

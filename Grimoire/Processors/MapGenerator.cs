@@ -5,6 +5,7 @@ using Grimoire.Core;
 using Grimoire.Core.Childs;
 using Grimoire.Enemys;
 using Grimoire.Enums;
+using Grimoire.Logic.Triangle;
 using RogueSharp;
 using RogueSharp.DiceNotation;
 
@@ -38,9 +39,28 @@ namespace Grimoire.Processors
 
         public DungeonMap CreateMap()
         {
+            #region DEBUG console log
+#if DEBUG
+            Console.WriteLine($"max rooms:{_maxRooms}");
+            Console.WriteLine($"room max size: {_roomMaxSize}");
+            Console.WriteLine($"room min size: {_roomMinSize}");
+#endif
+            #endregion
             _map.Initialize(_width, _height);
             var pointsCalculator = new PointsCalculator();
             var points = pointsCalculator.GetPointInsideRectangle(_width, _height, _maxRooms);
+            DelaunayTriangulation delaunay = new DelaunayTriangulation(points);
+
+            #region DEBUG console log
+
+#if DEBUG
+            foreach (var del in delaunay.Triangulate())
+            {
+                Console.WriteLine($"triangle abc {del.a}{del.b}{del.c}");
+            }
+#endif
+
+            #endregion
             List<Rectangle> newRoomsList = new List<Rectangle>();
             foreach (var point in points)
             {
@@ -54,6 +74,18 @@ namespace Grimoire.Processors
                 var newRoom = new Rectangle(roomXPosition, roomYPosition, roomWidth, roomHeight);
                 bool newRoomIntersects = _map.Rooms.Any(room => newRoom.Intersects(room));
 
+                #region DEBUG console log
+
+#if DEBUG
+                int counter = 0;
+                Console.WriteLine($"romm width {counter} : {roomWidth}");
+                Console.WriteLine($"room height {counter} : {roomHeight}");
+                Console.WriteLine($"room pos X {counter} : {roomXPosition}");
+                Console.WriteLine($"room pos y {counter} : {roomYPosition}");
+                counter++;
+#endif
+
+                #endregion
                 #region temporary
                 //bool newRoomIntersects = false;
                 //foreach (var room in _map.Rooms)
@@ -80,6 +112,11 @@ namespace Grimoire.Processors
                 //}
                 #endregion
 
+                #region DEBUG Console log
+#if DEBUG
+                Console.WriteLine($"IsOverlapping: {newRoomIntersects}");
+#endif
+                #endregion
                 if (!newRoomIntersects)
                 {
                     _map.Rooms.Add(newRoom);
@@ -165,6 +202,13 @@ namespace Grimoire.Processors
             for(int x=Math.Min(xStart,xEnd); x<= Math.Max(xStart, xEnd); x++)
             {
                 _map.SetCellProperties(x, yPos, true, true);
+
+                #region DEBUG console log
+
+#if DEBUG
+                Console.WriteLine($"horizontal corridor (X,Y) ({x},{yPos})");
+#endif
+                #endregion
             }
         }
         private void CreateVerticalHallways(int yStart, int yEnd, int xPos)
@@ -172,6 +216,12 @@ namespace Grimoire.Processors
             for (int y = Math.Min(yStart, yEnd); y <= Math.Max(yStart, yEnd); y++)
             {
                 _map.SetCellProperties(xPos, y, true, true);
+                #region DEBUG console log
+
+#if DEBUG
+                Console.WriteLine($"vertical corridor (X,Y) ({xPos},{y})");
+#endif
+                #endregion
             }
         }
         private void PlaceEnemys()
