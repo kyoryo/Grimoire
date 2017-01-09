@@ -40,7 +40,12 @@ const config = {
 
         tunnelDebugHeight: 1.2,
         tunnelDebugColor: [0.7, 0.7, 0.7]
-    }
+    },
+    appenders: [
+        {type:"console"}
+    ],
+    replaceConsole:true 
+    
 };
 
 export default config;

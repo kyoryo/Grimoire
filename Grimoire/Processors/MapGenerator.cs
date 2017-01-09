@@ -5,9 +5,13 @@ using Grimoire.Core;
 using Grimoire.Core.Childs;
 using Grimoire.Enemys;
 using Grimoire.Enums;
+using Grimoire.Logic.Generator;
 using Grimoire.Logic.Triangle;
 using RogueSharp;
 using RogueSharp.DiceNotation;
+using QuickGraph;
+using QuickGraph.Serialization.DirectedGraphML;
+using QuickGraph.Algorithms;
 
 namespace Grimoire.Processors
 {
@@ -54,14 +58,55 @@ namespace Grimoire.Processors
             #region DEBUG console log
 
 #if DEBUG
+            DistanceCalculator dist = new DistanceCalculator();
+            var g = new UndirectedGraph<int, TaggedUndirectedEdge<int, int>>();
+            List<TaggedUndirectedEdge<int, int>> listasdf = new List<TaggedUndirectedEdge<int, int>>();
+
+            int i = 0;
             foreach (var del in delaunay.Triangulate())
             {
                 Console.WriteLine($"triangle abc {del.a}{del.b}{del.c}");
+                var ab = dist.Distance(del.a.X, del.a.Y, del.b.X, del.b.Y);
+                var bc = dist.Distance(del.b.X, del.b.Y, del.c.X, del.c.Y);
+                var ca = dist.Distance(del.c.X, del.c.Y, del.a.X, del.a.Y);
+                Console.WriteLine($"weight (ab,bc,ca) ({ab},{bc},{ca})");
+
+                listasdf.Add(new TaggedUndirectedEdge<int, int>(i, i+1, (int)ab));
+                listasdf.Add(new TaggedUndirectedEdge<int, int>(i+1, i+2, (int)bc));
+                listasdf.Add(new TaggedUndirectedEdge<int, int>(i+2, i, (int)ca));
+                i += 1;
+
+                g.AddVerticesAndEdgeRange(listasdf);
             }
+            
+
+            //var e1 = new TaggedUndirectedEdge<int, int>(1, 2, 57);
+            //var e2 = new TaggedUndirectedEdge<int, int>(1, 4, 65);
+            //var e3 = new TaggedUndirectedEdge<int, int>(2, 3, 500);
+            //var e4 = new TaggedUndirectedEdge<int, int>(2, 4, 1);
+            //var e5 = new TaggedUndirectedEdge<int, int>(3, 4, 78);
+            //var e6 = new TaggedUndirectedEdge<int, int>(3, 5, 200);
+
+            //g.AddVerticesAndEdge(e1);
+            //g.AddVerticesAndEdge(e2);
+            //g.AddVerticesAndEdge(e3);
+            //g.AddVerticesAndEdge(e4);
+            //g.AddVerticesAndEdge(e5);
+            //g.AddVerticesAndEdge(e6);
+
+            var mst = g.MinimumSpanningTreeKruskal(e => e.Tag).ToList();
+
+            foreach (var edge in mst)
+            {
+                Console.WriteLine($"asdf {edge}");
+
+            }
+
 #endif
 
             #endregion
             List<Rectangle> newRoomsList = new List<Rectangle>();
+            List<Logic.Models.Point> selectedPoints = new List<Logic.Models.Point>();
             foreach (var point in points)
             {
                 int roomWidth = Program.Random.Next(_roomMinSize, _roomMaxSize);
@@ -120,8 +165,28 @@ namespace Grimoire.Processors
                 if (!newRoomIntersects)
                 {
                     _map.Rooms.Add(newRoom);
+                    selectedPoints.Add(point);
                 }
             }
+
+
+            DelaunayTriangulation delNext = new DelaunayTriangulation(selectedPoints);
+            #region DEBUG console log
+
+#if DEBUG
+            foreach (var del in delNext.Triangulate())
+            {
+                Console.WriteLine($"triangle abc {del.a}{del.b}{del.c}");
+                var ab = dist.Distance(del.a.X, del.a.Y, del.b.X, del.b.Y);
+                var bc = dist.Distance(del.b.X, del.b.Y, del.c.X, del.c.Y);
+                var ca = dist.Distance(del.c.X, del.c.Y, del.a.X, del.a.Y);
+                Console.WriteLine($"weight (ab,bc,ca) ({ab},{bc},{ca})");
+            }
+#endif
+
+            #endregion
+
+
 
             foreach (Rectangle room in _map.Rooms)
             {

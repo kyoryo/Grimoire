@@ -93,7 +93,7 @@ namespace Grimoire
             Console.WriteLine($"dungeon Height : {DungeonFrame.Height}");
 #endif
             #endregion
-            MapGenerator mapGenerator = new MapGenerator(DungeonFrame.Width, DungeonFrame.Height, 20, 13, 7);
+            MapGenerator mapGenerator = new MapGenerator(DungeonFrame.Width, DungeonFrame.Height, 10, 13, 7);
             
             //MapGenerator mapGenerator = new MapGenerator(100, 100, 60, 13, 7);
             DungeonMap = mapGenerator.CreateMap();

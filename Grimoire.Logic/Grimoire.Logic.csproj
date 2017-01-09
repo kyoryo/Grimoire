@@ -53,6 +53,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Generator\DistanceCalculator.cs" />
     <Compile Include="Generator\DungeonGenerator.cs" />
     <Compile Include="Generator\MapCalculator.cs" />
     <Compile Include="Interfaces\IRandomNumber.cs" />
