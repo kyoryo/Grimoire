@@ -74,7 +74,7 @@ namespace Grimoire.Processors
                 listasdf.Add(new TaggedUndirectedEdge<int, int>(i, i+1, (int)ab));
                 listasdf.Add(new TaggedUndirectedEdge<int, int>(i+1, i+2, (int)bc));
                 listasdf.Add(new TaggedUndirectedEdge<int, int>(i+2, i, (int)ca));
-                i += 1;
+                i += 3;
 
                 g.AddVerticesAndEdgeRange(listasdf);
             }
@@ -93,12 +93,19 @@ namespace Grimoire.Processors
             //g.AddVerticesAndEdge(e4);
             //g.AddVerticesAndEdge(e5);
             //g.AddVerticesAndEdge(e6);
-
+            var x = 0;
+            foreach (var edge in listasdf)
+            {
+                Console.WriteLine($"edge {x+=1} : {edge.Tag}");
+            }
+            
             var mst = g.MinimumSpanningTreeKruskal(e => e.Tag).ToList();
 
+
+            var y = 0;
             foreach (var edge in mst)
             {
-                Console.WriteLine($"asdf {edge}");
+                Console.WriteLine($"mst {y+=1} : {edge}");
 
             }
 
@@ -174,14 +181,57 @@ namespace Grimoire.Processors
             #region DEBUG console log
 
 #if DEBUG
+            DistanceCalculator distNext = new DistanceCalculator();
+            var gNext = new UndirectedGraph<int, TaggedUndirectedEdge<int, int>>();
+            List<TaggedUndirectedEdge<int, int>> listasdfNext = new List<TaggedUndirectedEdge<int, int>>();
+
+            int iNext = 0;
             foreach (var del in delNext.Triangulate())
             {
                 Console.WriteLine($"triangle abc {del.a}{del.b}{del.c}");
-                var ab = dist.Distance(del.a.X, del.a.Y, del.b.X, del.b.Y);
-                var bc = dist.Distance(del.b.X, del.b.Y, del.c.X, del.c.Y);
-                var ca = dist.Distance(del.c.X, del.c.Y, del.a.X, del.a.Y);
+                var ab = distNext.Distance(del.a.X, del.a.Y, del.b.X, del.b.Y);
+                var bc = distNext.Distance(del.b.X, del.b.Y, del.c.X, del.c.Y);
+                var ca = distNext.Distance(del.c.X, del.c.Y, del.a.X, del.a.Y);
                 Console.WriteLine($"weight (ab,bc,ca) ({ab},{bc},{ca})");
+
+                listasdfNext.Add(new TaggedUndirectedEdge<int, int>(iNext, iNext + 1, (int)ab));
+                listasdfNext.Add(new TaggedUndirectedEdge<int, int>(iNext + 1, iNext + 2, (int)bc));
+                listasdfNext.Add(new TaggedUndirectedEdge<int, int>(iNext + 2, iNext, (int)ca));
+                iNext += 2;
+
+                gNext.AddVerticesAndEdgeRange(listasdfNext);
             }
+
+
+            //var e1 = new TaggedUndirectedEdge<int, int>(1, 2, 57);
+            //var e2 = new TaggedUndirectedEdge<int, int>(1, 4, 65);
+            //var e3 = new TaggedUndirectedEdge<int, int>(2, 3, 500);
+            //var e4 = new TaggedUndirectedEdge<int, int>(2, 4, 1);
+            //var e5 = new TaggedUndirectedEdge<int, int>(3, 4, 78);
+            //var e6 = new TaggedUndirectedEdge<int, int>(3, 5, 200);
+
+            //g.AddVerticesAndEdge(e1);
+            //g.AddVerticesAndEdge(e2);
+            //g.AddVerticesAndEdge(e3);
+            //g.AddVerticesAndEdge(e4);
+            //g.AddVerticesAndEdge(e5);
+            //g.AddVerticesAndEdge(e6);
+            var xNext = 0;
+            foreach (var edge in listasdfNext)
+            {
+                Console.WriteLine($"edge {xNext += 1} : {edge.Tag}");
+            }
+
+            var mstNext = gNext.MinimumSpanningTreeKruskal(e => e.Tag).ToList();
+
+
+            var yNext = 0;
+            foreach (var edge in mstNext)
+            {
+                Console.WriteLine($"mst {yNext += 1} : {edge}");
+
+            }
+
 #endif
 
             #endregion
