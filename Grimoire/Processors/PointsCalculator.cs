@@ -109,6 +109,18 @@ namespace Grimoire.Processors
                 Point randomPoint = new Point(x, y);
                 points.Add(randomPoint);
             }
+
+            #region DEBUG console log
+
+#if DEBUG
+            Console.WriteLine($"number of points generated {points.Count}\ngenerated within width: {rectangleWidth} height: {rectangleHeight}\nPoints:");
+            foreach (var point in points)
+            {
+                Console.WriteLine($"{point.X}\t{point.Y} ");
+            }
+#endif
+
+            #endregion
             return points;
         }
     }

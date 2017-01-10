@@ -78,21 +78,6 @@ namespace Grimoire.Processors
 
                 g.AddVerticesAndEdgeRange(listasdf);
             }
-            
-
-            //var e1 = new TaggedUndirectedEdge<int, int>(1, 2, 57);
-            //var e2 = new TaggedUndirectedEdge<int, int>(1, 4, 65);
-            //var e3 = new TaggedUndirectedEdge<int, int>(2, 3, 500);
-            //var e4 = new TaggedUndirectedEdge<int, int>(2, 4, 1);
-            //var e5 = new TaggedUndirectedEdge<int, int>(3, 4, 78);
-            //var e6 = new TaggedUndirectedEdge<int, int>(3, 5, 200);
-
-            //g.AddVerticesAndEdge(e1);
-            //g.AddVerticesAndEdge(e2);
-            //g.AddVerticesAndEdge(e3);
-            //g.AddVerticesAndEdge(e4);
-            //g.AddVerticesAndEdge(e5);
-            //g.AddVerticesAndEdge(e6);
             var x = 0;
             foreach (var edge in listasdf)
             {

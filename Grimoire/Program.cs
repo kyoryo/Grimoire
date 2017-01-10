@@ -8,6 +8,7 @@ using Grimoire.UI.Frames;
 using RLNET;
 using RogueSharp.Random;
 using System;
+using System.IO;
 using Grimoire.Logic.Helpers;
 using Grimoire.Logic.Interfaces;
 using Grimoire.Logic.Random;
@@ -41,6 +42,10 @@ namespace Grimoire
             //int seed = 443041680;
             Random = new NormalDistributionRandom(seed);
 #if DEBUG
+            FileStream filestream = new FileStream("out.txt", FileMode.Create);
+            var streamwriter = new StreamWriter(filestream);
+            streamwriter.AutoFlush = true;
+            Console.SetOut(streamwriter); //toggle text logging
             Console.WriteLine($"Initial Seed: {seed}");
 #endif
 
@@ -108,6 +113,15 @@ namespace Grimoire
             _inventoryConsole.SetBackColor(0, 0, InventoryFrame.Width, InventoryFrame.Height, Colors.DbSkin);
             _inventoryConsole.Print(1, 1, "for invent", Colors.TextHeading);
 
+
+            #region DEBUG console LOG
+
+#if DEBUG
+            
+            Console.SetError(streamwriter);
+#endif
+
+            #endregion
             _rootConsole.Run();
 
         }
