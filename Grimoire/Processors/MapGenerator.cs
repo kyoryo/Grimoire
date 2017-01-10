@@ -99,6 +99,7 @@ namespace Grimoire.Processors
             #endregion
             List<Rectangle> newRoomsList = new List<Rectangle>();
             List<Logic.Models.Point> selectedPoints = new List<Logic.Models.Point>();
+            int counter = 0;
             foreach (var point in points)
             {
                 int roomWidth = Program.Random.Next(_roomMinSize, _roomMaxSize);
@@ -114,12 +115,13 @@ namespace Grimoire.Processors
                 #region DEBUG console log
 
 #if DEBUG
-                int counter = 0;
-                Console.WriteLine($"romm width {counter} : {roomWidth}");
-                Console.WriteLine($"room height {counter} : {roomHeight}");
-                Console.WriteLine($"room pos X {counter} : {roomXPosition}");
-                Console.WriteLine($"room pos y {counter} : {roomYPosition}");
-                counter++;
+                
+                //Console.WriteLine($"romm width {counter} : {roomWidth}");
+                //Console.WriteLine($"room height {counter} : {roomHeight}");
+                //Console.WriteLine($"room pos X {counter} : {roomXPosition}");
+                //Console.WriteLine($"room pos y {counter} : {roomYPosition}");
+                Console.WriteLine($"{roomWidth}\t{roomHeight}\t{roomXPosition}\t{roomYPosition}\t{newRoomIntersects}");
+                counter += 1;
 #endif
 
                 #endregion
@@ -151,7 +153,7 @@ namespace Grimoire.Processors
 
                 #region DEBUG Console log
 #if DEBUG
-                Console.WriteLine($"IsOverlapping: {newRoomIntersects}");
+                //Console.WriteLine($"IsOverlapping: {newRoomIntersects}");
 #endif
                 #endregion
                 if (!newRoomIntersects)
@@ -188,19 +190,6 @@ namespace Grimoire.Processors
             }
 
 
-            //var e1 = new TaggedUndirectedEdge<int, int>(1, 2, 57);
-            //var e2 = new TaggedUndirectedEdge<int, int>(1, 4, 65);
-            //var e3 = new TaggedUndirectedEdge<int, int>(2, 3, 500);
-            //var e4 = new TaggedUndirectedEdge<int, int>(2, 4, 1);
-            //var e5 = new TaggedUndirectedEdge<int, int>(3, 4, 78);
-            //var e6 = new TaggedUndirectedEdge<int, int>(3, 5, 200);
-
-            //g.AddVerticesAndEdge(e1);
-            //g.AddVerticesAndEdge(e2);
-            //g.AddVerticesAndEdge(e3);
-            //g.AddVerticesAndEdge(e4);
-            //g.AddVerticesAndEdge(e5);
-            //g.AddVerticesAndEdge(e6);
             var xNext = 0;
             foreach (var edge in listasdfNext)
             {
